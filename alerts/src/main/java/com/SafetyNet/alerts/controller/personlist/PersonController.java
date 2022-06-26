@@ -26,7 +26,7 @@ public class PersonController implements PersonControllerInterface {
 
     @RequestMapping("/index")
     public String displayHome(){
-        System.out.println("LA METHODE DISPLAY HOME A ETE INVOQUE");
+        System.out.println("LA METHODE DISPLAYHOME A ETE INVOQUE lA HOME PAGE S AFFICHE");
         String persons = "Testons";
         /*request.setAttribute("persons", persons);*/
         return persons;
