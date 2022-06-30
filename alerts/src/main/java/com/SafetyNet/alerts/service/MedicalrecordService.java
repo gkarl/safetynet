@@ -30,6 +30,12 @@ public class MedicalrecordService implements MedicalrecordServiceInterface{
         return medicalrecordRepositoryInterface.findMedicalRecordAll();
     }
 
+    @Override
+    public List<Medicalrecord> createMedicalrecord(Medicalrecord medicalrecord) {
+        medicalrecordRepositoryInterface.createMedicalrecord(medicalrecord);
+        return medicalrecordRepositoryInterface.findMedicalRecordAll();
+    }
+
     // URL Endpoint
     @Override
     public Medicalrecord findByFirstName(String firstName) {

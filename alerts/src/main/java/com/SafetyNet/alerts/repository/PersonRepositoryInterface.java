@@ -8,5 +8,7 @@ public interface PersonRepositoryInterface {
 
     List<Person> findPersonAll();
 
+    List<Person> createPerson(Person person);
+
     List<Person> findByAddress(String address);
 }

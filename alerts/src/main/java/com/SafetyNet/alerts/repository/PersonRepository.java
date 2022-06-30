@@ -21,6 +21,13 @@ public class PersonRepository implements PersonRepositoryInterface {
         return database.getPersons();
     }
 
+    @Override
+    public List<Person> createPerson(Person person) {
+        List<Person> savePersonList = database.getPersons();
+        savePersonList.add(person);
+        return savePersonList;
+    }
+
     // URL Endpoints
 
     @Override
@@ -33,5 +40,7 @@ public class PersonRepository implements PersonRepositoryInterface {
         }
         return listPerson;
     }
+
+
 
 }

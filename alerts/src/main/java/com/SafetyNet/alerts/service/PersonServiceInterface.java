@@ -10,6 +10,8 @@ public interface PersonServiceInterface {
 
     List<Person> findPersonAll();
 
+    List<Person> createPerson(Person person);
+
     // URL Endpoint
     List<Person> findByAddress(String address);
 }

@@ -3,9 +3,7 @@ package com.SafetyNet.alerts.controller;
 import com.SafetyNet.alerts.model.Person;
 import com.SafetyNet.alerts.service.PersonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
@@ -40,6 +38,12 @@ public class PersonController {
     public Person findOnePerson() {
         Person findPerson = personServiceInterface.findPersonAll().get(0);
         return findPerson;
+    }
+
+    @PostMapping("/person")
+    public List<Person> addPerson(@RequestBody Person person){
+        List<Person> newPersons = personServiceInterface.createPerson(person);
+        return newPersons;
     }
 
 

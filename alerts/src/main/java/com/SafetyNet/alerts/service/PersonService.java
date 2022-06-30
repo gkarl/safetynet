@@ -34,6 +34,12 @@ public class PersonService implements PersonServiceInterface {
         return personRepositoryInterface.findPersonAll();
     }
 
+    @Override
+    public List<Person> createPerson(Person person) {
+        personRepositoryInterface.createPerson(person);
+        return personRepositoryInterface.findPersonAll();
+    }
+
 
     //URL Endpoint
     @Override

@@ -19,6 +19,13 @@ public class MedicalrecordRepository implements MedicalrecordRepositoryInterface
         return database.getMedicalrecords();
     }
 
+    @Override
+    public List<Medicalrecord> createMedicalrecord(Medicalrecord medicalrecord) {
+        List<Medicalrecord> saveMedicalrecordList = database.getMedicalrecords();
+        saveMedicalrecordList.add(medicalrecord);
+        return saveMedicalrecordList;
+    }
+
     //URL Endpoint
     @Override
     public Medicalrecord findByFirstName(String firstName) {

@@ -8,7 +8,10 @@ import java.util.List;
 public interface FirestationServiceInterface {
 
     void setFirestationRepositoryInterface(FirestationRepositoryInterface firestationRepositoryInterface);
+
     List<Firestation> findFirestationAll();
+
+    List<Firestation> createFirestation(Firestation firestation);
 
     // URL endpoints
 

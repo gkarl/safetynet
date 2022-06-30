@@ -2,6 +2,7 @@ package com.SafetyNet.alerts.repository;
 
 import com.SafetyNet.alerts.model.Database;
 import com.SafetyNet.alerts.model.Firestation;
+import com.SafetyNet.alerts.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,6 +20,14 @@ public class FirestationRepository implements FirestationRepositoryInterface{
     public List<Firestation> findFirestationAll() {
         return database.getFirestations();
     }
+
+    @Override
+    public List<Firestation> createFirestation(Firestation firestation) {
+        List<Firestation> saveFirestationList = database.getFirestations();
+        saveFirestationList.add(firestation);
+        return saveFirestationList;
+    }
+
 
     // URL endpoints
 
