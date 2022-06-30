@@ -47,4 +47,10 @@ public class Firestation {
     public void setPerson(List<Person> person) {
         this.person = person;
     }
+
+    @Override
+    public String toString() {
+        return getAddress()+ ", " + getStation() + "\n";
+    }
+
 }

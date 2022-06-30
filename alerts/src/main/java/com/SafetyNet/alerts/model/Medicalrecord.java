@@ -2,20 +2,22 @@ package com.SafetyNet.alerts.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Medicalrecord {
 
     private String firstName;
     private String lastName;
     private String birthdate;
-    private String[] medications;
-    private String[] allergies;
+    private List<String> medications;
+    private List<String> allergies;
 
     public Medicalrecord(){
 
     }
 
-    public Medicalrecord(String firstName, String lastName, String birthdate, String[] medications, String[] allergies){
+    public Medicalrecord(String firstName, String lastName, String birthdate, List<String> medications, List<String> allergies){
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
@@ -47,19 +49,24 @@ public class Medicalrecord {
         this.birthdate = birthdate;
     }
 
-    public String[] getMedications() {
+    public List<String> getMedications() {
         return medications;
     }
 
-    public void setMedications(String[] medications) {
+    public void setMedications(List<String> medications) {
         this.medications = medications;
     }
 
-    public String[] getAllergies() {
+    public List<String> getAllergies() {
         return allergies;
     }
 
-    public void setAllergies(String[] allergies) {
+    public void setAllergies(List<String> allergies) {
         this.allergies = allergies;
+    }
+
+    @Override
+    public String toString() {
+        return getFirstName() + ", " + getLastName() + ", " + getBirthdate() + ", " + getMedications() + ", " + getAllergies() + "\n";
     }
 }

@@ -1,7 +1,5 @@
-package com.SafetyNet.alerts.controller.personlist;
+package com.SafetyNet.alerts.controller;
 
-import com.SafetyNet.alerts.controller.PersonControllerInterface;
-import com.SafetyNet.alerts.model.Database;
 import com.SafetyNet.alerts.model.Person;
 import com.SafetyNet.alerts.service.PersonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 @RestController
-public class PersonController implements PersonControllerInterface {
+public class PersonController {
 
     @Autowired
     PersonServiceInterface personServiceInterface;
@@ -26,11 +24,7 @@ public class PersonController implements PersonControllerInterface {
 
     @RequestMapping("/index")
     public String displayHome(){
-<<<<<<< HEAD
-        System.out.println("LA METHODE DISPLAY HOME PAGE A ETE INVOQUE");
-=======
         System.out.println("LA METHODE DISPLAYHOME A ETE INVOQUE lA HOME PAGE S AFFICHE");
->>>>>>> feature_api_all_persons
         String persons = "Testons";
         /*request.setAttribute("persons", persons);*/
         return persons;
@@ -48,10 +42,5 @@ public class PersonController implements PersonControllerInterface {
         return findPerson;
     }
 
-  /*  @RequestMapping("/persons")
-    public String displayHome(HttpServletRequest request){
-        System.out.println("LA METHODE DISPLAY hOME A ETE INVOQUE");
-        List<Person> persons = persons.getPersonsList();
-        request.setAttribute("persons", persons);
-    }*/
+
 }

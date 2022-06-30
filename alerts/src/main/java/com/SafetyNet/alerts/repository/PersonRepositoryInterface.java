@@ -7,4 +7,6 @@ import java.util.List;
 public interface PersonRepositoryInterface {
 
     List<Person> findPersonAll();
+
+    List<Person> findByAddress(String address);
 }

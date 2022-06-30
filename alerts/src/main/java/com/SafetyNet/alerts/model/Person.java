@@ -105,4 +105,10 @@ public class Person {
     public void setMedicalrecord(Medicalrecord medicalrecord) {
         this.medicalrecord = medicalrecord;
     }
+
+
+    @Override
+    public String toString() {
+        return getFirstName() + ", " + getLastName() + ", " + getAddress() + ", " + getCity() + ", " + getZip() + ", " + getPhone() + ", " + getEmail() + "\n";
+    }
 }
