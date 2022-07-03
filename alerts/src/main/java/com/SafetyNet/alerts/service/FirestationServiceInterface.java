@@ -13,6 +13,8 @@ public interface FirestationServiceInterface {
 
     List<Firestation> createFirestation(Firestation firestation);
 
+    Firestation updateFirestation(Firestation firestation);
+
     // URL endpoints
 
     List<Firestation> findAddressByStation(int stationNumber);

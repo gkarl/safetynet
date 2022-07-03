@@ -3,10 +3,7 @@ package com.SafetyNet.alerts.controller;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.service.FirestationServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,4 +33,12 @@ public class FirestationController {
         List<Firestation> newFirestationList = firestationServiceInterface.createFirestation(firestation);
         return newFirestationList;
     }
+
+    @PutMapping("/firestation")
+    public Firestation updateFirestation(@RequestBody Firestation firestation){
+        Firestation updateFirestationOutput = firestationServiceInterface.updateFirestation(firestation);
+        return updateFirestationOutput;
+    }
+
+
 }

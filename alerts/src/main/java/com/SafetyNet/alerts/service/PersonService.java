@@ -40,6 +40,11 @@ public class PersonService implements PersonServiceInterface {
         return personRepositoryInterface.findPersonAll();
     }
 
+    @Override
+    public Person updatePerson(String firstNameAndLastName, Person person) {
+        return personRepositoryInterface.updatePerson(firstNameAndLastName, person);
+    }
+
 
     //URL Endpoint
     @Override

@@ -28,6 +28,23 @@ public class PersonRepository implements PersonRepositoryInterface {
         return savePersonList;
     }
 
+    @Override
+    public Person updatePerson(String firstNameLastName, Person person) {
+        List<Person> updatePersonList;
+        updatePersonList = database.getPersons();
+        for (Person update : updatePersonList) {
+            if (update.getFirstNameLastName().equals(firstNameLastName)) {
+                update.setAddress(person.getAddress());
+                update.setCity(person.getCity());
+                update.setZip(person.getZip());
+                update.setPhone(person.getPhone());
+                update.setEmail(person.getEmail());
+                return update;
+            }
+        }
+        return null;
+    }
+
     // URL Endpoints
 
     @Override

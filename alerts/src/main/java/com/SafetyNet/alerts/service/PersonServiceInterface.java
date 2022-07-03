@@ -12,6 +12,8 @@ public interface PersonServiceInterface {
 
     List<Person> createPerson(Person person);
 
+    Person updatePerson(String firstNameLastName, Person person);
+
     // URL Endpoint
     List<Person> findByAddress(String address);
 }

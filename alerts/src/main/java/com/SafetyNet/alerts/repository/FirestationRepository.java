@@ -28,6 +28,18 @@ public class FirestationRepository implements FirestationRepositoryInterface{
         return saveFirestationList;
     }
 
+    @Override
+    public Firestation updateFirestation(Firestation firestation) {
+        List<Firestation> updateFirestationList = database.getFirestations();
+        for (Firestation update : updateFirestationList){
+            if (update.getAddress().equals(firestation.getAddress())){
+                update.setStation(firestation.getStation());
+                return update;
+            }
+        }
+        return null;
+    }
+
 
     // URL endpoints
 

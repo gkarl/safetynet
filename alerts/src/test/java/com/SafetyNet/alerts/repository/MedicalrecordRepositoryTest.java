@@ -41,6 +41,40 @@ public class MedicalrecordRepositoryTest {
     }
 
     @Test
+    @DisplayName("Test createMedicalrecord")
+    public  void createMedicalrecordTest(){
+        List<Medicalrecord> medicalrecordList= new ArrayList<Medicalrecord>();
+
+        //mock simulation
+        when(database.getMedicalrecords()).thenReturn(medicalrecordList);
+
+        List<Medicalrecord> createMedicalrecord = medicalrecordRepository.createMedicalrecord(new Medicalrecord());
+
+        // AssertJ test
+        assertSame(medicalrecordList, createMedicalrecord);
+        assertEquals(1, createMedicalrecord.size());
+
+        verify(database).getMedicalrecords();
+        assertSame(createMedicalrecord, medicalrecordRepository.findMedicalRecordAll());
+    }
+
+    @Test
+    @DisplayName("Test updateMedicalrecord")
+    public void updateMedicalrecordTest(){
+        List<Medicalrecord> medicalrecordList = new ArrayList<Medicalrecord>();
+
+        //mock simulation
+        when(database.getMedicalrecords()).thenReturn(medicalrecordList);
+
+        // AssertJ test
+        assertNull(medicalrecordRepository.updateMedicalrecord("karl", new Medicalrecord()));
+
+        verify(database).getMedicalrecords();
+        assertSame(medicalrecordList, medicalrecordRepository.findMedicalRecordAll());
+
+    }
+
+    @Test
     @DisplayName("Test FindByFirstName")
     public void findByFirstNameTest(){
         List<Medicalrecord> medicalrecordList = new ArrayList<Medicalrecord>();

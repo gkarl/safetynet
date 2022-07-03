@@ -10,6 +10,8 @@ public interface MedicalrecordRepositoryInterface {
 
     List<Medicalrecord> createMedicalrecord(Medicalrecord medicalrecord);
 
+    Medicalrecord updateMedicalrecord(String firstNameLastName, Medicalrecord medicalrecord);
+
     //URL Endpoint
     Medicalrecord findByFirstName(String firstName);
 }

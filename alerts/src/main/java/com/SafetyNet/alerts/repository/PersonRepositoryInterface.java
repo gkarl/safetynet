@@ -10,5 +10,7 @@ public interface PersonRepositoryInterface {
 
     List<Person> createPerson(Person person);
 
+    Person updatePerson(String firstNameLastName, Person person);
+
     List<Person> findByAddress(String address);
 }

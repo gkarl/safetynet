@@ -43,6 +43,37 @@ public class FirestationServiceTest {
     }
 
     @Test
+    @DisplayName("Test createFirestation")
+    public void createFirestationTest(){
+
+        List<Firestation> firestationList = new ArrayList<Firestation>();
+        Firestation firestation = new Firestation();
+        firestation.setAddress("voltaire");
+        firestation.setStation(16);
+        firestationList.add(firestation);
+
+        //mock simulation
+        when(firestationRepositoryInterface.createFirestation(firestation)).thenReturn(firestationList);
+
+        // AssertJ test
+        assertThat(firestationService.createFirestation(firestation).toString(), containsString("voltaire"));
+    }
+
+    @Test
+    @DisplayName("Test updateFirestation")
+    public void updateFirestationTest(){
+        Firestation firestation = new Firestation();
+        firestation.setAddress("voltaire");
+        firestation.setStation(16);
+
+        //mock simulation
+        when(firestationRepositoryInterface.updateFirestation(firestation)).thenReturn(firestation);
+
+        // AssertJ test
+        assertThat(firestationService.updateFirestation(firestation).toString(), containsString("voltaire"));
+    }
+
+    @Test
     @DisplayName("Test findAddressByStation")
     public void findAddressByStationTest(){
         Firestation firestation = new Firestation();

@@ -26,6 +26,20 @@ public class MedicalrecordRepository implements MedicalrecordRepositoryInterface
         return saveMedicalrecordList;
     }
 
+    @Override
+    public Medicalrecord updateMedicalrecord(String firstNameLastName, Medicalrecord medicalrecord) {
+        List<Medicalrecord> updateMedicalrecordList = database.getMedicalrecords();
+        for (Medicalrecord updateMedical : updateMedicalrecordList){
+            if (updateMedical.getFirstNameLastName().equals(firstNameLastName)){
+                updateMedical.setBirthdate(medicalrecord.getBirthdate());
+                updateMedical.setMedications(medicalrecord.getMedications());
+                updateMedical.setAllergies(medicalrecord.getAllergies());
+                return updateMedical;
+            }
+        }
+        return null;
+    }
+
     //URL Endpoint
     @Override
     public Medicalrecord findByFirstName(String firstName) {

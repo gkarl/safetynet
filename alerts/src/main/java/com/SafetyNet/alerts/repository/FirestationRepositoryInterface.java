@@ -11,6 +11,8 @@ public interface FirestationRepositoryInterface {
 
     List<Firestation> createFirestation(Firestation firestation);
 
+    Firestation updateFirestation(Firestation firestation);
+
     // URL endpoint
 
     List<Firestation> findAddressByStation(int stationNumber);

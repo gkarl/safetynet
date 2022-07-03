@@ -46,5 +46,13 @@ public class PersonController {
         return newPersons;
     }
 
+    @PutMapping(value = "/person/{firstNameLastName}")
+    public Person updatePerson(@RequestBody Person person, @PathVariable String firstNameLastName) {
+        Person updatePersonOutput = personServiceInterface.updatePerson(firstNameLastName, person);
+        return updatePersonOutput;
+    }
+
+
+
 
 }

@@ -33,8 +33,12 @@ public class FirestationService implements FirestationServiceInterface {
 
     @Override
     public List<Firestation> createFirestation(Firestation firestation) {
-        firestationRepositoryInterface.createFirestation(firestation);
-        return firestationRepositoryInterface.findFirestationAll();
+        return firestationRepositoryInterface.createFirestation(firestation);
+    }
+
+    @Override
+    public Firestation updateFirestation(Firestation firestation) {
+        return firestationRepositoryInterface.updateFirestation(firestation);
     }
 
     //URL endpoint

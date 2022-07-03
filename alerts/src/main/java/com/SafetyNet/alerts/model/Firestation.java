@@ -50,7 +50,7 @@ public class Firestation {
 
     @Override
     public String toString() {
-        return getAddress()+ ", " + getStation() + "\n";
+        return getAddress() + ", " + getStation() + "\n";
     }
 
 }

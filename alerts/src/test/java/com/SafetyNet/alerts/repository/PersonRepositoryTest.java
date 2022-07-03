@@ -13,8 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -43,6 +42,36 @@ public class PersonRepositoryTest {
         assertTrue(findPersonAll.isEmpty());
         // Verify getPersons() call the good argument
         verify(database).getPersons();
+    }
+
+    @Test
+    @DisplayName("Test createPerson")
+    public void createPersonTest(){
+        List<Person> personList = new ArrayList<Person>();
+
+        //mock simulation
+        when(database.getPersons()).thenReturn(personList);
+
+        List<Person> savePersonList = personRepository.createPerson(new Person());
+
+        assertSame(personList, savePersonList);
+        assertEquals(1, savePersonList.size());
+        // Verify getPersons() call the good argument
+        verify(database).getPersons();
+        assertSame(savePersonList, personRepository.findPersonAll());
+    }
+
+    @Test
+    @DisplayName("Test updatePerson")
+    public void updatePersonTest(){
+        List<Person> personList = new ArrayList<Person>();
+
+        //mock simulation
+        when(database.getPersons()).thenReturn(personList);
+        assertNull(personRepository.updatePerson("Karl", new Person()));
+        // Verify getPersons() call the good argument
+        verify(database).getPersons();
+        assertSame(personList, personRepository.findPersonAll());
     }
 
     @Test

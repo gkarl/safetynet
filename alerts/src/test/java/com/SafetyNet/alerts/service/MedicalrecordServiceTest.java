@@ -55,6 +55,55 @@ public class MedicalrecordServiceTest {
     }
 
     @Test
+    @DisplayName("Test createMedicalrecord")
+    public void createMedicalrecordTest(){
+        List<Medicalrecord> medicalrecordList = new ArrayList<Medicalrecord>();
+        Medicalrecord medicalrecord = new Medicalrecord();
+        List<String> mediactions = new ArrayList<>();
+        mediactions.add("hydroxycloroquine");
+        mediactions.add("ivermectine");
+        List<String> allergies = new LinkedList<>();
+        allergies.add("covid");
+        allergies.add("grippe");
+        medicalrecord.setFirstName("karl");
+        medicalrecord.setLastName("gavillot");
+        medicalrecord.setBirthdate("16/02/1999");
+        medicalrecord.setMedications(mediactions);
+        medicalrecord.setAllergies(allergies);
+        medicalrecordList.add(medicalrecord);
+
+        //mock simulation
+        when(medicalrecordRepositoryInterface.findMedicalRecordAll()).thenReturn(medicalrecordList);
+
+        // AssertJ test
+        assertThat(medicalrecordService.findMedicalRecordAll().toString(), containsString("karl"));
+    }
+
+    @Test
+    @DisplayName("Test updateMedicalrecord")
+    public void updateMedicalrecordTest(){
+        Medicalrecord medicalrecord = new Medicalrecord();
+        List<String> mediactions = new ArrayList<>();
+        mediactions.add("hydroxycloroquine");
+        mediactions.add("ivermectine");
+        List<String> allergies = new LinkedList<>();
+        allergies.add("covid");
+        allergies.add("grippe");
+        medicalrecord.setFirstName("karl");
+        medicalrecord.setLastName("gavillot");
+        medicalrecord.setBirthdate("16/02/1999");
+        medicalrecord.setMedications(mediactions);
+        medicalrecord.setAllergies(allergies);
+
+        //mock simulation
+        when(medicalrecordRepositoryInterface.updateMedicalrecord("karlgavillot", medicalrecord)).thenReturn((medicalrecord));
+
+        // AssertJ test
+        assertThat(medicalrecordService.updateMedicalrecord("karlgavillot", medicalrecord).toString(), containsString("karl"));
+
+    }
+
+    @Test
     @DisplayName("Test findBysFirstName")
     public void findByFirstNameTest(){
         Medicalrecord medicalrecord = new Medicalrecord();

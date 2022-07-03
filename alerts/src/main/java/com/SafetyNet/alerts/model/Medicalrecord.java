@@ -1,5 +1,6 @@
 package com.SafetyNet.alerts.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
@@ -12,17 +13,28 @@ public class Medicalrecord {
     private String birthdate;
     private List<String> medications;
     private List<String> allergies;
+    @JsonIgnore
+    private String firstNameLastName;
 
     public Medicalrecord(){
 
     }
 
-    public Medicalrecord(String firstName, String lastName, String birthdate, List<String> medications, List<String> allergies){
+    public Medicalrecord(String firstName, String lastName, String birthdate, List<String> medications, List<String> allergies, String firstNameLastName){
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
         this.medications = medications;
         this.allergies = allergies;
+        this.firstNameLastName = firstNameLastName;
+    }
+
+    public String getFirstNameLastName(){
+        return firstName + lastName;
+    }
+
+    public void setFirstNameLastName(String firstNameLastName){
+        this.firstNameLastName = firstNameLastName;
     }
 
     public String getFirstName() {

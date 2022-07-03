@@ -17,12 +17,14 @@ public class Person {
     private Firestation firestation;
     @JsonIgnore
     private Medicalrecord medicalrecord;
+    @JsonIgnore
+    private String firstNameLastName;
 
     public Person(){
 
     }
 
-    public Person(String firstName, String lastName, String address, String city, String zip, String phone, String email, Firestation firestation, Medicalrecord medicalrecord){
+    public Person(String firstName, String lastName, String address, String city, String zip, String phone, String email, Firestation firestation, Medicalrecord medicalrecord, String firstNameLastName){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -32,6 +34,16 @@ public class Person {
         this.email = email;
         this.firestation = firestation;
         this.medicalrecord = medicalrecord;
+        this.firstNameLastName = firstNameLastName;
+    }
+
+
+    public String getFirstNameLastName(){
+        return firstName +lastName;
+    }
+
+    public void setFirstNameAndLastName(String firstNameAndLastName){
+        this.firstNameLastName = firstNameAndLastName;
     }
 
     public String getFirstName() {

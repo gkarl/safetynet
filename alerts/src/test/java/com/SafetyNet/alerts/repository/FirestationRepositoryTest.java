@@ -11,9 +11,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.Assert.assertSame;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -35,11 +34,49 @@ public class FirestationRepositoryTest {
         when(database.getFirestations()).thenReturn(firestationList);
 
         List<Firestation> findFirestationAll = firestationRepository.findFirestationAll();
+
         // AssertJ test
         assertSame(firestationList, findFirestationAll);
         assertTrue(findFirestationAll.isEmpty());
         // Verify getPersons() call the good argument
         verify(database).getFirestations();
+    }
+
+    @Test
+    @DisplayName("Test createFirestation")
+    public void createFirestationTest(){
+        List<Firestation> firestationList = new ArrayList<Firestation>();
+
+        //mock simulation
+        when(database.getFirestations()).thenReturn(firestationList);
+        List<Firestation> createFirestation = firestationRepository.createFirestation(new Firestation());
+
+        // Verify getPersons() call the good argument
+        verify(database).getFirestations();
+
+        // AssertJ test
+        assertEquals(1,createFirestation.size());
+        assertSame(createFirestation, firestationRepository.findFirestationAll());
+    }
+
+    @Test
+    @DisplayName("Test updateFirestation")
+    public void updateFirestationTest(){
+        Firestation firestation = new Firestation();
+        firestation.setAddress("voltaire");
+        List<Firestation> firestationList = new ArrayList<Firestation>();
+        firestationList.add(firestation);
+
+        //mock simulation
+        when(database.getFirestations()).thenReturn(firestationList);
+        assertNull(firestationRepository.updateFirestation(new Firestation()));
+
+        // Verify getPersons() call the good argument
+        verify(database).getFirestations();
+
+        // AssertJ test
+        assertSame(firestationList, firestationRepository.findFirestationAll());
+
     }
 
     @Test

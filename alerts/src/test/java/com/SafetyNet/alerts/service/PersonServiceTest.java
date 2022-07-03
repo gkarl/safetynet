@@ -54,6 +54,46 @@ public class PersonServiceTest {
     }
 
     @Test
+    @DisplayName("Test createPerson")
+    public void createPersonTest(){
+        List<Person> personList = new ArrayList<Person>();
+        Person person = new Person();
+        person.setFirstName("karl");
+        person.setLastName("gavillot");
+        person.setAddress("voltaire");
+        person.setCity("boulogne");
+        person.setZip("92100");
+        person.setPhone("0677777777");
+        person.setEmail("karl@gmail.com");
+        personList.add(person);
+
+        //mock simulation
+        when(personRepositoryInterface.findPersonAll()).thenReturn(personList);
+        // AssertJ test
+        assertThat(personService.createPerson(person).toString(), containsString("karl"));
+    }
+
+    @Test
+    @DisplayName("Test updatePerson")
+    public void updatePersonTest(){
+        Person person = new Person();
+        person.setFirstName("karl");
+        person.setLastName("gavillot");
+        person.setAddress("voltaire");
+        person.setCity("boulogne");
+        person.setZip("92100");
+        person.setPhone("0677777777");
+        person.setEmail("karl@gmail.com");
+
+        //mock simulation
+        when(personRepositoryInterface.updatePerson("karlgavillot", person)).thenReturn(person);
+
+        // AssertJ test
+        assertThat(personService.updatePerson("karlgavillot", person).toString(), containsString("karl"));
+
+    }
+
+    @Test
     @DisplayName("Test findByLastName")
     public void findByAddressTest(){
         List<Person> listPerson = new ArrayList<Person>();
