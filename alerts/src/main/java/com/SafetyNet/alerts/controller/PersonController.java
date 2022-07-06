@@ -2,12 +2,16 @@ package com.SafetyNet.alerts.controller;
 
 import com.SafetyNet.alerts.model.Person;
 import com.SafetyNet.alerts.service.PersonServiceInterface;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
 public class PersonController {
+
+    Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     @Autowired
     PersonServiceInterface personServiceInterface;
@@ -31,6 +35,11 @@ public class PersonController {
     @GetMapping("/persons")
     public List<Person> findPersonAll() {
         List<Person> findPerson = personServiceInterface.findPersonAll();
+        if (findPerson != null){
+            logger.info("GET findPersonAll SUCCESS");
+        } else {
+            logger.info("GET findPersonAll FAILED");
+        }
         return findPerson;
     }
 
@@ -43,12 +52,22 @@ public class PersonController {
     @PostMapping("/person")
     public List<Person> addPerson(@RequestBody Person person){
         List<Person> newPersons = personServiceInterface.createPerson(person);
+        if (newPersons != null){
+            logger.info("POST addPerson SUCCESS");
+        } else {
+            logger.info("POST addPerson FAILED");
+        }
         return newPersons;
     }
 
     @PutMapping(value = "/person/{firstNameLastName}")
     public Person updatePerson(@RequestBody Person person, @PathVariable String firstNameLastName) {
         Person updatePersonOutput = personServiceInterface.updatePerson(firstNameLastName, person);
+        if ( updatePersonOutput != null){
+            logger.info("PUT updatePerson SUCCESS");
+        } else {
+            logger.info("PUT updatePerson FAILED");
+        }
         return updatePersonOutput;
     }
 

@@ -7,6 +7,8 @@ import com.SafetyNet.alerts.model.Person;
 import com.SafetyNet.alerts.repository.FirestationRepositoryInterface;
 import com.SafetyNet.alerts.repository.MedicalrecordRepositoryInterface;
 import com.SafetyNet.alerts.repository.PersonRepositoryInterface;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,8 @@ import java.util.List;
 
 @Service
 public class UrlEndpointService {
+
+    Logger logger = LoggerFactory.getLogger(UrlEndpointService.class);
 
     @Autowired
     PersonRepositoryInterface personRepositoryInterface;
@@ -67,6 +71,7 @@ public class UrlEndpointService {
                 calculeService.calculateAge(medicalrecord.getBirthdate());
             }
         }
+        logger.info("GET allPersonsByStation SUCCESS");
         return new PersonsByStationDto(listPersonsStation, calculeService.getAdults(), calculeService.getChildren());
     }
 
