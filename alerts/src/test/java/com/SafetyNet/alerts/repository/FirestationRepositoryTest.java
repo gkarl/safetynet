@@ -2,6 +2,7 @@ package com.SafetyNet.alerts.repository;
 
 import com.SafetyNet.alerts.model.Database;
 import com.SafetyNet.alerts.model.Firestation;
+import com.SafetyNet.alerts.model.Person;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -76,7 +77,25 @@ public class FirestationRepositoryTest {
 
         // AssertJ test
         assertSame(firestationList, firestationRepository.findFirestationAll());
+    }
 
+    @Test
+    @DisplayName("Test deleteFirestation")
+    public void deleteFirestationTest(){
+        List<Firestation> firestationList = new ArrayList<Firestation>();
+
+        firestationList.add(new Firestation("voltaire", 11, new ArrayList<Person>()));
+
+        //mock simulation
+        when(database.getFirestations()).thenReturn(firestationList);
+
+        firestationRepository.deleteFirestation("voltaire");
+        verify(database).getFirestations();
+        List<Firestation> getFirestations = firestationRepository.findFirestationAll();
+
+        // AssertJ test
+        assertSame(firestationList, getFirestations);
+        assertTrue(getFirestations.isEmpty());
     }
 
     @Test

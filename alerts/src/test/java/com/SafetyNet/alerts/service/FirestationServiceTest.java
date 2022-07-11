@@ -74,6 +74,21 @@ public class FirestationServiceTest {
     }
 
     @Test
+    @DisplayName("Test deleteFirestation")
+    public void deleteFirestationT(){
+        List<Firestation> firestationList = new ArrayList<Firestation>();
+        Firestation firestation = new Firestation();
+        firestation.setAddress("voltaire");
+        firestation.setStation(16);
+        firestationList.add(firestation);
+
+        when(firestationRepositoryInterface.findFirestationAll()).thenReturn(firestationList);
+
+        assertThat(firestationService.findFirestationAll().toString(), containsString("voltaire"));
+
+    }
+
+    @Test
     @DisplayName("Test findAddressByStation")
     public void findAddressByStationTest(){
         Firestation firestation = new Firestation();

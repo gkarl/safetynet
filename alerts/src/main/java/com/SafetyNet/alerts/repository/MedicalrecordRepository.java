@@ -40,6 +40,12 @@ public class MedicalrecordRepository implements MedicalrecordRepositoryInterface
         return null;
     }
 
+    @Override
+    public void deleteMedicalrecord(String firstNameLastName) {
+        List<Medicalrecord> medicalrecordList = database.getMedicalrecords();
+        medicalrecordList.removeIf(medicalrecord -> medicalrecord.getFirstNameLastName().equals(firstNameLastName));
+    }
+
     //URL Endpoint
     @Override
     public Medicalrecord findByFirstName(String firstName) {

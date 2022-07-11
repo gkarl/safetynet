@@ -40,6 +40,12 @@ public class FirestationRepository implements FirestationRepositoryInterface{
         return null;
     }
 
+    @Override
+    public void deleteFirestation(String address) {
+        List<Firestation> firestationList = database.getFirestations();
+        firestationList.removeIf(firestation -> firestation.getAddress().equals(address));
+    }
+
 
     // URL endpoints
 

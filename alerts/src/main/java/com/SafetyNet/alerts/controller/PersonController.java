@@ -71,6 +71,11 @@ public class PersonController {
         return updatePersonOutput;
     }
 
+    @DeleteMapping("/person/{firstNameLastName}")
+    public List<Person> deletePerson(@PathVariable String firstNameLastName){
+        logger.info("DELETE deletePerson SUCCESS");
+        return personServiceInterface.deletePerson(firstNameLastName);
+    }
 
 
 

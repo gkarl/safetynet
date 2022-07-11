@@ -59,5 +59,10 @@ public class FirestationController {
         return updateFirestationOutput;
     }
 
+    @DeleteMapping("/firestation/{address}")
+    public List<Firestation> deleteFirestation(@PathVariable String address){
+        logger.info("DELETE deleteFirestation SUCCESS");
+        return firestationServiceInterface.deleteFirestation(address);
+    }
 
 }

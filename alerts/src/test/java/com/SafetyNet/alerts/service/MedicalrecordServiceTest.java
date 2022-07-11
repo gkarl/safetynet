@@ -13,9 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -100,6 +101,29 @@ public class MedicalrecordServiceTest {
 
         // AssertJ test
         assertThat(medicalrecordService.updateMedicalrecord("karlgavillot", medicalrecord).toString(), containsString("karl"));
+
+    }
+
+    @Test
+    @DisplayName("Test deleteMedicalrecord")
+    public void deleteMedicalrecordTest(){
+        Medicalrecord medicalrecord = new Medicalrecord();
+        List<String> mediactions = new ArrayList<>();
+        mediactions.add("hydroxycloroquine");
+        mediactions.add("ivermectine");
+        List<String> allergies = new LinkedList<>();
+        allergies.add("covid");
+        allergies.add("grippe");
+        medicalrecord.setFirstName("karl");
+        medicalrecord.setLastName("gavillot");
+        medicalrecord.setBirthdate("16/02/1999");
+        medicalrecord.setMedications(mediactions);
+        medicalrecord.setAllergies(allergies);
+        medicalrecordService.createMedicalrecord(medicalrecord);
+
+        medicalrecordRepositoryInterface.deleteMedicalrecord("karlgavillot");
+        assertDoesNotThrow(() -> medicalrecordService.deleteMedicalrecord("karlgavillot"));
+        verify(medicalrecordRepositoryInterface, times(2)).findMedicalRecordAll();
 
     }
 

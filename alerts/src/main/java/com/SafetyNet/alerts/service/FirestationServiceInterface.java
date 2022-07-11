@@ -15,6 +15,8 @@ public interface FirestationServiceInterface {
 
     Firestation updateFirestation(Firestation firestation);
 
+    List<Firestation> deleteFirestation(String address);
+
     // URL endpoints
 
     List<Firestation> findAddressByStation(int stationNumber);

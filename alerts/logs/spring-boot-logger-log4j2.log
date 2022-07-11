@@ -1,17 +1,21 @@
-2022-07-05 12:18:23,760 INFO o.s.b.StartupInfoLogger [main] Starting AlertsApplication using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 27092 (E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts\target\classes started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
-2022-07-05 12:18:23,810 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-07-05 12:18:25,161 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 80 (http)
-2022-07-05 12:18:25,183 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-80"]
-2022-07-05 12:18:25,184 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
-2022-07-05 12:18:25,187 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
-2022-07-05 12:18:25,447 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2022-07-05 12:18:25,448 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1550 ms
-2022-07-05 12:18:26,151 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
-2022-07-05 12:18:26,445 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-80"]
-2022-07-05 12:18:26,471 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 80 (http) with context path '/safetyNet'
-2022-07-05 12:18:26,487 INFO o.s.b.StartupInfoLogger [main] Started AlertsApplication in 3.599 seconds (JVM running for 6.144)
-2022-07-05 12:18:45,341 INFO o.a.j.l.DirectJDKLog [http-nio-80-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-07-05 12:18:45,342 INFO o.s.w.s.FrameworkServlet [http-nio-80-exec-2] Initializing Servlet 'dispatcherServlet'
-2022-07-05 12:18:45,345 INFO o.s.w.s.FrameworkServlet [http-nio-80-exec-2] Completed initialization in 2 ms
-2022-07-05 12:18:45,425 INFO c.S.a.c.UrlEndpointsController [http-nio-80-exec-2] allPersonByStation SUCCESS
-2022-07-05 12:18:45,448 INFO c.S.a.s.UrlEndpointService [http-nio-80-exec-2] GET allPersonsByStation SUCCESS
+2022-07-06 12:26:58,906 INFO o.s.b.StartupInfoLogger [main] Starting AlertsApplication using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 29936 (E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts\target\classes started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
+2022-07-06 12:26:58,918 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:27:00,781 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 80 (http)
+2022-07-06 12:27:00,810 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-80"]
+2022-07-06 12:27:00,811 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2022-07-06 12:27:00,812 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-06 12:27:01,124 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-07-06 12:27:01,125 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2139 ms
+2022-07-06 12:27:01,918 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-07-06 12:27:02,238 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-80"]
+2022-07-06 12:27:02,266 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 80 (http) with context path '/safetyNet'
+2022-07-06 12:27:02,282 INFO o.s.b.StartupInfoLogger [main] Started AlertsApplication in 4.231 seconds (JVM running for 6.794)
+2022-07-06 12:27:49,233 INFO o.a.j.l.DirectJDKLog [http-nio-80-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-06 12:27:49,234 INFO o.s.w.s.FrameworkServlet [http-nio-80-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-07-06 12:27:49,235 INFO o.s.w.s.FrameworkServlet [http-nio-80-exec-1] Completed initialization in 1 ms
+2022-07-06 12:27:49,270 INFO c.S.a.s.MedicalrecordService [http-nio-80-exec-1] GET all Medicalrecord SUCCESS :
+2022-07-06 12:27:49,270 INFO c.S.a.c.MedicalrecordController [http-nio-80-exec-1] GET findMedicalRecordAll SUCCESS
+2022-07-06 12:28:10,724 INFO c.S.a.c.MedicalrecordController [http-nio-80-exec-3] DELETE deleteMedicalrecord SUCCESS
+2022-07-06 12:28:10,725 INFO c.S.a.s.MedicalrecordService [http-nio-80-exec-3] deleteMedicalrecord SUCCESS :JohnBoyd
+2022-07-06 12:28:24,656 INFO c.S.a.s.MedicalrecordService [http-nio-80-exec-4] GET all Medicalrecord SUCCESS :
+2022-07-06 12:28:24,657 INFO c.S.a.c.MedicalrecordController [http-nio-80-exec-4] GET findMedicalRecordAll SUCCESS

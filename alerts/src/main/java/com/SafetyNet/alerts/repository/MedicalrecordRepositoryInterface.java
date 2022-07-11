@@ -12,6 +12,8 @@ public interface MedicalrecordRepositoryInterface {
 
     Medicalrecord updateMedicalrecord(String firstNameLastName, Medicalrecord medicalrecord);
 
+    void deleteMedicalrecord(String firstNameLastName);
+
     //URL Endpoint
     Medicalrecord findByFirstName(String firstName);
 }

@@ -51,15 +51,22 @@ public class PersonService implements PersonServiceInterface {
 
     @Override
     public Person updatePerson(String firstNameAndLastName, Person person) {
-        logger.info("Update Person SUCCESS:" + person);
+        logger.info("Update Person SUCCESS :" + person);
         return personRepositoryInterface.updatePerson(firstNameAndLastName, person);
+    }
+
+    @Override
+    public List<Person> deletePerson(String firstNameLastName) {
+        logger.info("deletePerson SUCCESS" + firstNameLastName);
+        personRepositoryInterface.deletePerson(firstNameLastName);
+        return personRepositoryInterface.findPersonAll();
     }
 
 
     //URL Endpoint
     @Override
     public List<Person> findByAddress(String address) {
-        //logger.info("findByAddress SUCCESS :" + address);
+        logger.info("findByAddress SUCCESS :" + address);
         return personRepositoryInterface.findByAddress(address);
     }
 

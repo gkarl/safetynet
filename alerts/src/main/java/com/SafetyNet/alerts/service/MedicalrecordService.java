@@ -48,6 +48,13 @@ public class MedicalrecordService implements MedicalrecordServiceInterface{
         return medicalrecordRepositoryInterface.updateMedicalrecord(firstNameLastName, medicalrecord);
     }
 
+    @Override
+    public List<Medicalrecord> deleteMedicalrecord(String firstNameLastName) {
+        logger.info("deleteMedicalrecord SUCCESS :" + firstNameLastName);
+        medicalrecordRepositoryInterface.deleteMedicalrecord(firstNameLastName);
+        return medicalrecordRepositoryInterface.findMedicalRecordAll();
+    }
+
     // URL Endpoint
     @Override
     public Medicalrecord findByFirstName(String firstName) {

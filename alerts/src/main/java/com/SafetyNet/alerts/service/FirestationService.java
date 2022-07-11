@@ -48,10 +48,17 @@ public class FirestationService implements FirestationServiceInterface {
         return firestationRepositoryInterface.updateFirestation(firestation);
     }
 
+    @Override
+    public List<Firestation> deleteFirestation(String address) {
+        logger.info("deleteFirestation SUCCESS :" + address);
+        firestationRepositoryInterface.deleteFirestation(address);
+        return firestationRepositoryInterface.findFirestationAll();
+    }
+
     //URL endpoint
     @Override
     public List<Firestation> findAddressByStation(int stationNumber) {
-        //logger.info("findAddressByStation SUCCESS :");
+        logger.info("findAddressByStation SUCCESS :");
         return firestationRepositoryInterface.findAddressByStation(stationNumber);
     }
 }

@@ -94,6 +94,23 @@ public class PersonServiceTest {
     }
 
     @Test
+    @DisplayName("Test deletePerson")
+    public void deletePersonTest(){
+        Person person = new Person();
+        person.setFirstName("karl");
+        person.setLastName("gavillot");
+        person.setAddress("voltaire");
+        person.setCity("boulogne");
+        person.setZip("92100");
+        person.setPhone("0677777777");
+        person.setEmail("karl@gmail.com");
+        personService.createPerson(person);
+
+        assertThat(personService.deletePerson("karlgavillot").toString(), containsString(""));
+
+    }
+
+    @Test
     @DisplayName("Test findByLastName")
     public void findByAddressTest(){
         List<Person> listPerson = new ArrayList<Person>();

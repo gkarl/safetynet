@@ -59,4 +59,10 @@ public class MedicalrecordController {
         return updateMedicalrecordOutput;
     }
 
+
+    @DeleteMapping("/medicalrecord/{firstNameLastName}")
+    List<Medicalrecord> deleteMedicalrecord(@PathVariable String firstNameLastName){
+        logger.info("DELETE deleteMedicalrecord SUCCESS");
+        return medicalrecordServiceInterface.deleteMedicalrecord(firstNameLastName);
+    }
 }

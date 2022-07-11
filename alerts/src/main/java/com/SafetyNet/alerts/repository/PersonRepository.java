@@ -45,6 +45,12 @@ public class PersonRepository implements PersonRepositoryInterface {
         return null;
     }
 
+    @Override
+    public void deletePerson(String firstNameLastName) {
+        List<Person> personList = database.getPersons();
+        personList.removeIf(person -> person.getFirstNameLastName().equals(firstNameLastName));
+    }
+
     // URL Endpoints
 
     @Override

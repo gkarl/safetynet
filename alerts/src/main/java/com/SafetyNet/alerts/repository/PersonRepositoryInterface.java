@@ -12,5 +12,7 @@ public interface PersonRepositoryInterface {
 
     Person updatePerson(String firstNameLastName, Person person);
 
+    void deletePerson(String firstNameLastName);
+
     List<Person> findByAddress(String address);
 }

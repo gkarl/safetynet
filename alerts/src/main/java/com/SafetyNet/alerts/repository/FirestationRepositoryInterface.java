@@ -13,6 +13,8 @@ public interface FirestationRepositoryInterface {
 
     Firestation updateFirestation(Firestation firestation);
 
+    void deleteFirestation(String address);
+
     // URL endpoint
 
     List<Firestation> findAddressByStation(int stationNumber);

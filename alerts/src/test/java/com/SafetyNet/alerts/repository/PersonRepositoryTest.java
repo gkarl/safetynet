@@ -75,6 +75,24 @@ public class PersonRepositoryTest {
     }
 
     @Test
+    @DisplayName("Test deletePerson")
+    public void deletePersonTest(){
+        List<Person> personList = new ArrayList<Person>();
+
+        //mock simulation
+        when(database.getPersons()).thenReturn(personList);
+
+        personRepository.deletePerson("Karl");
+        verify(database).getPersons();
+        List<Person> getPersons = personRepository.findPersonAll();
+
+        // AssertJ test
+        assertSame(personList, getPersons);
+        assertTrue(getPersons.isEmpty());
+
+    }
+
+    @Test
     @DisplayName("Test findByAddress")
     public void findByAddressTest(){
         List<Person> personList = new ArrayList<Person>();

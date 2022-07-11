@@ -75,6 +75,23 @@ public class MedicalrecordRepositoryTest {
     }
 
     @Test
+    @DisplayName("Test deleteMedicalrecord")
+    public void deleteMedicalrecordTest(){
+        List<Medicalrecord> medicalrecordList = new ArrayList<Medicalrecord>();
+
+        //mock simulation
+        when(database.getMedicalrecords()).thenReturn(medicalrecordList);
+
+        medicalrecordRepository.deleteMedicalrecord("Karl");
+        verify(database).getMedicalrecords();
+        List<Medicalrecord> getMedicalrecords = medicalrecordRepository.findMedicalRecordAll();
+
+        // AssertJ test
+        assertSame(medicalrecordList, getMedicalrecords);
+        assertTrue(getMedicalrecords.isEmpty());
+    }
+
+    @Test
     @DisplayName("Test FindByFirstName")
     public void findByFirstNameTest(){
         List<Medicalrecord> medicalrecordList = new ArrayList<Medicalrecord>();
