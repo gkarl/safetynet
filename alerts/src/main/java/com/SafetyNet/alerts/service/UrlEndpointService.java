@@ -3,6 +3,7 @@ package com.SafetyNet.alerts.service;
 import com.SafetyNet.alerts.dto.url1firestation.PersonsByStationDto;
 import com.SafetyNet.alerts.dto.url2childAlert.ChildByAddressDto;
 import com.SafetyNet.alerts.dto.url2childAlert.PersonsWithAge;
+import com.SafetyNet.alerts.dto.url3phoneAlert.PhoneAlertListDto;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.model.Medicalrecord;
 import com.SafetyNet.alerts.model.Person;
@@ -108,6 +109,18 @@ public class UrlEndpointService {
         return childByAddressDto;
     }
 
-
+    // URL 3 Phones by Firestation
+    public PhoneAlertListDto phonesByFirestation(int firestation){
+        List<Person> listPersons = new ArrayList<>();
+        List<String> listPhones  = new ArrayList<>();
+        for (Firestation firestationB : firestationRepositoryInterface.findAddressByStation(firestation)) {
+            listPersons.addAll(personRepositoryInterface.findByAddress(firestationB.getAddress()));
+        }
+        for (Person person : listPersons) {
+            listPhones.add(person.getPhone());
+        }
+        logger.info("phonesByFirestation SUCCESS :" + firestation);
+        return new PhoneAlertListDto(listPhones);
+    }
 
 }

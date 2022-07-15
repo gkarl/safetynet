@@ -133,4 +133,30 @@ public class UrlEndpointServiceTest {
         }
     }
 
+    // URL 3
+    @Test
+    @DisplayName("Test phonesByFirestation")
+    public void phonesByFirestationTest() throws ParseException{
+        listPersons = new ArrayList<>();
+        Person person = new Person();
+        person.setFirstName("karl");
+        person.setLastName("gavillot");
+        person.setAddress("voltaire");
+        person.setZip("92100");
+        person.setPhone("0677777777");
+        person.setEmail("karl@gmail.com");
+        listPersons.add(person);
+
+        List<Firestation> firestationList = new ArrayList<>();
+        Firestation firestation = new Firestation();
+        firestation.setAddress("voltaire");
+        firestation.setStation(7);
+        firestationList.add(firestation);
+
+        when(personRepositoryInterface.findByAddress("voltaire")).thenReturn(listPersons);
+        when(firestationRepositoryInterface.findAddressByStation(7)).thenReturn(firestationList);
+
+        assertThat(urlEndpointService.phonesByFirestation(7).getListPhones().toString(), containsString("0677777777"));
+    }
+
 }

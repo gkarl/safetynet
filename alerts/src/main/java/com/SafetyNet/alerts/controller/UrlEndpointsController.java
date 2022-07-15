@@ -2,6 +2,7 @@ package com.SafetyNet.alerts.controller;
 
 import com.SafetyNet.alerts.dto.url1firestation.PersonsByStationDto;
 import com.SafetyNet.alerts.dto.url2childAlert.ChildByAddressDto;
+import com.SafetyNet.alerts.dto.url3phoneAlert.PhoneAlertListDto;
 import com.SafetyNet.alerts.service.UrlEndpointService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,5 +33,12 @@ public class UrlEndpointsController {
     public ChildByAddressDto childsByAddress(@RequestParam("address") String address) throws ParseException{
         logger.info("GET childsByAddress SUCCESS");
         return urlEndpointService.childsByAddress(address);
+    }
+
+    //URL 3 Phone Alert
+    @GetMapping("/phoneAlert")
+    public PhoneAlertListDto phonesByFirestation(@RequestParam(value = "firestation") int firestation){
+        logger.info("GET phonesByFirestation SUCCESS");
+        return urlEndpointService.phonesByFirestation(firestation);
     }
 }
