@@ -1,6 +1,8 @@
 package com.SafetyNet.alerts.service;
 
 import com.SafetyNet.alerts.dto.url1firestation.PersonsByStationDto;
+import com.SafetyNet.alerts.dto.url2childAlert.ChildByAddressDto;
+import com.SafetyNet.alerts.dto.url2childAlert.PersonsWithAge;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.model.Medicalrecord;
 import com.SafetyNet.alerts.model.Person;
@@ -12,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,6 +77,37 @@ public class UrlEndpointService {
         logger.info("GET allPersonsByStation SUCCESS");
         return new PersonsByStationDto(listPersonsStation, calculeService.getAdults(), calculeService.getChildren());
     }
+
+
+    // URL 2 childs by address
+    public ChildByAddressDto childsByAddress(String address) throws ParseException {
+        List<Person> listPersonsByAddress = personRepositoryInterface.findByAddress(address);
+        ChildByAddressDto childByAddressDto = new ChildByAddressDto();
+        List<PersonsWithAge> childsList = new ArrayList<PersonsWithAge>();
+        List<PersonsWithAge> adultsList = new ArrayList<PersonsWithAge>();
+        CalculeService calculeService = new CalculeService();
+        List<Medicalrecord> listMedicalrecords = new ArrayList<Medicalrecord>();
+        for(Person person : listPersonsByAddress){
+            Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
+            listMedicalrecords.add(medicalrecord);
+            calculeService.calculateAge(medicalrecord.getBirthdate());
+            PersonsWithAge personsWithAge = new PersonsWithAge(person.getFirstName(), person.getLastName(), calculeService.getAge());
+            if (calculeService.getAge() == 0){
+                return null;
+            } else {
+                if (personsWithAge.getAge() < 18 ){
+                    childsList.add(personsWithAge);
+                } else {
+                    adultsList.add(personsWithAge);
+                }
+            }
+        }
+        childByAddressDto.setChildren(childsList);
+        childByAddressDto.setAdults(adultsList);
+        logger.info("childsByAddress SUCCESS" + address);
+        return childByAddressDto;
+    }
+
 
 
 }

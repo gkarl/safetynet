@@ -1,5 +1,6 @@
 package com.SafetyNet.alerts.service;
 
+import com.SafetyNet.alerts.dto.url2childAlert.PersonsWithAge;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.model.Medicalrecord;
 import com.SafetyNet.alerts.model.Person;
@@ -14,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,7 +94,42 @@ public class UrlEndpointServiceTest {
         for (Person person1 : urlEndpointService.allPersonsByStation(2).getListPersonsStation()) {
             assertThat(person1.getFirstName(), containsString("karl"));
 
+        }
+    }
 
+    //URL 2
+    @Test
+    @DisplayName("Test childsByAddress")
+    public void childsByAddressTest() throws ParseException{
+        listPersons = new ArrayList<>();
+        Person person = new Person();
+        person.setFirstName("karl");
+        person.setLastName("gavillot");
+        person.setAddress("voltaire");
+        person.setZip("92100");
+        person.setPhone("0677777777");
+        person.setEmail("karl@gmail.com");
+        listPersons.add(person);
+
+        Medicalrecord medicalrecord = new Medicalrecord();
+        List<String> medications = new ArrayList<>();
+        medications.add("hydroxycloroquine");
+        medications.add("ivermectine");
+        List<String> allergies = new ArrayList<>();
+        allergies.add("covid");
+        allergies.add("grippe");
+        medicalrecord.setFirstName("karl");
+        medicalrecord.setLastName("gavillot");
+        medicalrecord.setBirthdate("08/30/1979");
+        medicalrecord.setMedications(medications);
+        medicalrecord.setAllergies(allergies);
+
+        when(personRepositoryInterface.findByAddress(any(String.class))).thenReturn(listPersons);
+        when(medicalrecordRepositoryInterface.findByFirstName(any(String.class))).thenReturn(medicalrecord);
+
+        for (PersonsWithAge childByAddressDto : urlEndpointService.childsByAddress("voltaire").getChildren()){
+            assertThat(childByAddressDto.getFirstName(), containsString("karl"));
+            assertThat(childByAddressDto.getLastName(), containsString("gavillot"));
         }
     }
 

@@ -1,6 +1,7 @@
 package com.SafetyNet.alerts.controller;
 
 import com.SafetyNet.alerts.dto.url1firestation.PersonsByStationDto;
+import com.SafetyNet.alerts.dto.url2childAlert.ChildByAddressDto;
 import com.SafetyNet.alerts.service.UrlEndpointService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.text.ParseException;
 
 @RestController
 public class UrlEndpointsController {
@@ -19,8 +22,15 @@ public class UrlEndpointsController {
 
     // URL 1 persons by firestation
     @GetMapping("/firestation")
-    public PersonsByStationDto allPersonByStation(@RequestParam(value = "stationNumber") int stationNumber){
+    public PersonsByStationDto allPersonByStation(@RequestParam(value = "stationNumber") int stationNumber) throws ParseException {
         logger.info("GET allPersonByStation SUCCESS");
         return urlEndpointService.allPersonsByStation(stationNumber);
+    }
+
+    // URL 2 child Alert
+    @GetMapping("/childAlert")
+    public ChildByAddressDto childsByAddress(@RequestParam("address") String address) throws ParseException{
+        logger.info("GET childsByAddress SUCCESS");
+        return urlEndpointService.childsByAddress(address);
     }
 }
