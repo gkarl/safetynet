@@ -17,7 +17,10 @@ public interface FirestationRepositoryInterface {
 
     // URL endpoint
 
+    Firestation findById(String firestationAddress);
+
     List<Firestation> findAddressByStation(int stationNumber);
+
 
 
 }

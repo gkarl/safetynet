@@ -50,6 +50,16 @@ public class FirestationRepository implements FirestationRepositoryInterface{
     // URL endpoints
 
     @Override
+    public Firestation findById(String firestationAddress) {
+        for (Firestation address : database.getFirestations()){
+            if (address.getAddress().equals(firestationAddress)){
+                return address;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public List<Firestation> findAddressByStation(int stationNumber) {
         List<Firestation> listFirestation = new ArrayList<Firestation>();
         for (Firestation firestation : database.getFirestations()){

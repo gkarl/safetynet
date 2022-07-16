@@ -1,6 +1,7 @@
 package com.SafetyNet.alerts.service;
 
 import com.SafetyNet.alerts.dto.url2childAlert.PersonsWithAge;
+import com.SafetyNet.alerts.dto.url4fire.PersonFireAddress;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.model.Medicalrecord;
 import com.SafetyNet.alerts.model.Person;
@@ -157,6 +158,46 @@ public class UrlEndpointServiceTest {
         when(firestationRepositoryInterface.findAddressByStation(7)).thenReturn(firestationList);
 
         assertThat(urlEndpointService.phonesByFirestation(7).getListPhones().toString(), containsString("0677777777"));
+    }
+
+    //URL 4
+    @Test
+    @DisplayName("Test personsByAddress")
+    public void personsByAddressTest() throws ParseException{
+        listPersons = new ArrayList<>();
+        Person person = new Person();
+        person.setFirstName("karl");
+        person.setLastName("gavillot");
+        person.setAddress("voltaire");
+        person.setZip("92100");
+        person.setPhone("0677777777");
+        person.setEmail("karl@gmail.com");
+        listPersons.add(person);
+
+        Firestation firestation = new Firestation();
+        firestation.setAddress("voltaire");
+        firestation.setStation(7);
+
+        Medicalrecord medicalrecord = new Medicalrecord();
+        List<String> medications = new ArrayList<>();
+        medications.add("hydroxycloroquine");
+        medications.add("ivermectine");
+        List<String> allergies = new ArrayList<>();
+        allergies.add("covid");
+        allergies.add("grippe");
+        medicalrecord.setFirstName("karl");
+        medicalrecord.setLastName("gavillot");
+        medicalrecord.setBirthdate("08/30/1979");
+        medicalrecord.setMedications(medications);
+        medicalrecord.setAllergies(allergies);
+
+        when(personRepositoryInterface.findByAddress("voltaire")).thenReturn(listPersons);
+        when(medicalrecordRepositoryInterface.findByFirstName("karl")).thenReturn(medicalrecord);
+        when(firestationRepositoryInterface.findById("voltaire")).thenReturn(firestation);
+
+        for (PersonFireAddress personFireAddress : urlEndpointService.personsByAddress("voltaire").getListPersonsByAddress()){
+            assertThat(personFireAddress.getLastName().toString(), containsString("gavillot"));
+        }
     }
 
 }

@@ -3,6 +3,7 @@ package com.SafetyNet.alerts.controller;
 import com.SafetyNet.alerts.dto.url1firestation.PersonsByStationDto;
 import com.SafetyNet.alerts.dto.url2childAlert.ChildByAddressDto;
 import com.SafetyNet.alerts.dto.url3phoneAlert.PhoneAlertListDto;
+import com.SafetyNet.alerts.dto.url4fire.PersonListByAddress;
 import com.SafetyNet.alerts.service.UrlEndpointService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,21 +25,28 @@ public class UrlEndpointsController {
     // URL 1 persons by firestation
     @GetMapping("/firestation")
     public PersonsByStationDto allPersonByStation(@RequestParam(value = "stationNumber") int stationNumber) throws ParseException {
-        logger.info("GET allPersonByStation SUCCESS");
+        logger.info("GET allPersonByStation SUCCESS :");
         return urlEndpointService.allPersonsByStation(stationNumber);
     }
 
     // URL 2 child Alert
     @GetMapping("/childAlert")
     public ChildByAddressDto childsByAddress(@RequestParam("address") String address) throws ParseException{
-        logger.info("GET childsByAddress SUCCESS");
+        logger.info("GET childsByAddress SUCCESS :");
         return urlEndpointService.childsByAddress(address);
     }
 
     //URL 3 Phone Alert
     @GetMapping("/phoneAlert")
     public PhoneAlertListDto phonesByFirestation(@RequestParam(value = "firestation") int firestation){
-        logger.info("GET phonesByFirestation SUCCESS");
+        logger.info("GET phonesByFirestation SUCCESS :");
         return urlEndpointService.phonesByFirestation(firestation);
+    }
+
+    // URL 4 fire
+    @GetMapping("/fire")
+    public PersonListByAddress personsByAddress(@RequestParam("address") String address) throws ParseException{
+        logger.info("GET personsByAddress SUCCESS :");
+        return urlEndpointService.personsByAddress(address);
     }
 }

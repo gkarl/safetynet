@@ -4,6 +4,8 @@ import com.SafetyNet.alerts.dto.url1firestation.PersonsByStationDto;
 import com.SafetyNet.alerts.dto.url2childAlert.ChildByAddressDto;
 import com.SafetyNet.alerts.dto.url2childAlert.PersonsWithAge;
 import com.SafetyNet.alerts.dto.url3phoneAlert.PhoneAlertListDto;
+import com.SafetyNet.alerts.dto.url4fire.PersonFireAddress;
+import com.SafetyNet.alerts.dto.url4fire.PersonListByAddress;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.model.Medicalrecord;
 import com.SafetyNet.alerts.model.Person;
@@ -14,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -121,6 +124,28 @@ public class UrlEndpointService {
         }
         logger.info("phonesByFirestation SUCCESS :" + firestation);
         return new PhoneAlertListDto(listPhones);
+    }
+
+    // URL 4 fire
+    public PersonListByAddress personsByAddress(String address) throws ParseException{
+        Firestation firestationNumber = firestationRepositoryInterface.findById(address);
+
+        if (firestationNumber != null){
+            List<Person> listPersonsC = personRepositoryInterface.findByAddress(firestationNumber.getAddress());
+            List<Person> listPersons = new ArrayList<>(listPersonsC);
+            List<PersonFireAddress> listPersonByAddress = new ArrayList<>();
+            CalculeService calculeService = new CalculeService();
+            for (Person person : listPersons){
+                Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
+                calculeService.calculateAge(medicalrecord.getBirthdate());
+                listPersonByAddress.add(new PersonFireAddress(person.getLastName(), person.getPhone(), calculeService.getAge(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
+            }
+            logger.info("personsByAddress SUCCESS :" + address);
+            return new PersonListByAddress(firestationNumber, listPersonByAddress);
+        }
+        else {
+            return null;
+        }
     }
 
 }
