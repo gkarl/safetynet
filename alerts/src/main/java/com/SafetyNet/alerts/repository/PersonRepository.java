@@ -75,5 +75,16 @@ public class PersonRepository implements PersonRepositoryInterface {
         return listPerson;
     }
 
+    @Override
+    public List<Person> findEmailByCity(String city) {
+        List<Person> listPerson = new ArrayList<>();
+        for (Person person : database.getPersons()){
+            if (person.getCity().equals(city)){
+                listPerson.add(person);
+            }
+        }
+        return listPerson;
+    }
+
 
 }

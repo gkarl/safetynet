@@ -62,6 +62,7 @@ public class UrlEndpointServiceTest {
         person.setFirstName("karl");
         person.setLastName("gavillot");
         person.setAddress("voltaire");
+        person.setCity("boulogne");
         person.setZip("92100");
         person.setPhone("0677777777");
         person.setEmail("karl@gmail.com");
@@ -109,6 +110,7 @@ public class UrlEndpointServiceTest {
         person.setFirstName("karl");
         person.setLastName("gavillot");
         person.setAddress("voltaire");
+        person.setCity("boulogne");
         person.setZip("92100");
         person.setPhone("0677777777");
         person.setEmail("karl@gmail.com");
@@ -145,6 +147,7 @@ public class UrlEndpointServiceTest {
         person.setFirstName("karl");
         person.setLastName("gavillot");
         person.setAddress("voltaire");
+        person.setCity("boulogne");
         person.setZip("92100");
         person.setPhone("0677777777");
         person.setEmail("karl@gmail.com");
@@ -171,6 +174,7 @@ public class UrlEndpointServiceTest {
         person.setFirstName("karl");
         person.setLastName("gavillot");
         person.setAddress("voltaire");
+        person.setCity("boulogne");
         person.setZip("92100");
         person.setPhone("0677777777");
         person.setEmail("karl@gmail.com");
@@ -211,6 +215,7 @@ public class UrlEndpointServiceTest {
         person.setFirstName("karl");
         person.setLastName("gavillot");
         person.setAddress("voltaire");
+        person.setCity("boulogne");
         person.setZip("92100");
         person.setPhone("0677777777");
         person.setEmail("karl@gmail.com");
@@ -258,6 +263,7 @@ public class UrlEndpointServiceTest {
         person.setFirstName("karl");
         person.setLastName("gavillot");
         person.setAddress("voltaire");
+        person.setCity("boulogne");
         person.setZip("92100");
         person.setPhone("0677777777");
         person.setEmail("karl@gmail.com");
@@ -285,6 +291,26 @@ public class UrlEndpointServiceTest {
             assertThat(personInfoDto.getMedications().toString(), containsString(medications.toString()));
             assertThat(personInfoDto.getAllergies().toString(), containsString(allergies.toString()));
         }
+    }
+
+    // URL 7
+    @Test
+    @DisplayName("Test emailsByCity")
+    public void emailsByCityTest(){
+        listPersons = new ArrayList<>();
+        Person person = new Person();
+        person.setFirstName("karl");
+        person.setLastName("gavillot");
+        person.setAddress("voltaire");
+        person.setCity("boulogne");
+        person.setZip("92100");
+        person.setPhone("0677777777");
+        person.setEmail("karl@gmail.com");
+        listPersons.add(person);
+
+        when(personRepositoryInterface.findEmailByCity("boulogne")).thenReturn(listPersons);
+
+        assertThat(urlEndpointService.emailsByCity("boulogne").getListEmails().toString(), containsString("karl@gmail.com"));
     }
 
 }

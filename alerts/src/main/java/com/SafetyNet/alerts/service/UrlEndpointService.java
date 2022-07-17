@@ -8,6 +8,7 @@ import com.SafetyNet.alerts.dto.url4fire.PersonFireAddress;
 import com.SafetyNet.alerts.dto.url4fire.PersonListByAddress;
 import com.SafetyNet.alerts.dto.url5flood.FamilyListByStation;
 import com.SafetyNet.alerts.dto.url6personInfo.PersonInfoDto;
+import com.SafetyNet.alerts.dto.url7communityEmail.EmailListDto;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.model.Medicalrecord;
 import com.SafetyNet.alerts.model.Person;
@@ -186,4 +187,19 @@ public class UrlEndpointService {
         logger.info("personsInfo SUCCESS :" + (firstName + lastName));
         return personInfoDtoList;
     }
+
+    // URL 7 community Eamil
+    public EmailListDto emailsByCity(String city){
+        List<Person> listPersons = new ArrayList<>();
+        List<String> listEmails = new ArrayList<>();
+        for (Person person : personRepositoryInterface.findEmailByCity(city)){
+            listPersons.add(person);
+        }
+        for (Person person : listPersons) {
+            listEmails.add(person.getEmail());
+        }
+        logger.info("emailsByCity SUCCESS :" + city);
+        return new EmailListDto(listEmails);
+    }
+
 }

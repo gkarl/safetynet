@@ -6,6 +6,7 @@ import com.SafetyNet.alerts.dto.url3phoneAlert.PhoneAlertListDto;
 import com.SafetyNet.alerts.dto.url4fire.PersonListByAddress;
 import com.SafetyNet.alerts.dto.url5flood.FamilyListByStation;
 import com.SafetyNet.alerts.dto.url6personInfo.PersonInfoDto;
+import com.SafetyNet.alerts.dto.url7communityEmail.EmailListDto;
 import com.SafetyNet.alerts.service.UrlEndpointService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,5 +66,12 @@ public class UrlEndpointsController {
     public List<PersonInfoDto> personInfo(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) throws ParseException {
         logger.info("GET personsInfo SUCCESS");
         return urlEndpointService.personsInfo(firstName, lastName);
+    }
+
+    // URL 7 communityEmail
+    @GetMapping("/communityEmail")
+    public EmailListDto emailsByCity(@RequestParam(value = "city") String city){
+        logger.info("GET emailsByCity SUCCESS");
+        return urlEndpointService.emailsByCity(city);
     }
 }
