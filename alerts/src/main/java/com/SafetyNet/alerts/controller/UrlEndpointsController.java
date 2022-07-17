@@ -5,6 +5,7 @@ import com.SafetyNet.alerts.dto.url2childAlert.ChildByAddressDto;
 import com.SafetyNet.alerts.dto.url3phoneAlert.PhoneAlertListDto;
 import com.SafetyNet.alerts.dto.url4fire.PersonListByAddress;
 import com.SafetyNet.alerts.dto.url5flood.FamilyListByStation;
+import com.SafetyNet.alerts.dto.url6personInfo.PersonInfoDto;
 import com.SafetyNet.alerts.service.UrlEndpointService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,5 +58,12 @@ public class UrlEndpointsController {
     public List<FamilyListByStation> familyByFirestation(@RequestParam(value = "stations") List<Integer> stations) throws ParseException{
         logger.info("GET familyByFirestation SUCCESS :");
         return urlEndpointService.familyByStation(stations);
+    }
+
+    // URL 6 personInfo
+    @GetMapping(value = "/personInfo")
+    public List<PersonInfoDto> personInfo(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) throws ParseException {
+        logger.info("GET personsInfo SUCCESS");
+        return urlEndpointService.personsInfo(firstName, lastName);
     }
 }

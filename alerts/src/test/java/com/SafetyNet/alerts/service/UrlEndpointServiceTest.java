@@ -3,6 +3,7 @@ package com.SafetyNet.alerts.service;
 import com.SafetyNet.alerts.dto.url2childAlert.PersonsWithAge;
 import com.SafetyNet.alerts.dto.url4fire.PersonFireAddress;
 import com.SafetyNet.alerts.dto.url5flood.FamilyListByStation;
+import com.SafetyNet.alerts.dto.url6personInfo.PersonInfoDto;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.model.Medicalrecord;
 import com.SafetyNet.alerts.model.Person;
@@ -245,6 +246,44 @@ public class UrlEndpointServiceTest {
         List<FamilyListByStation> familyListByStationList = urlEndpointService.familyByStation(stations);
         for (FamilyListByStation familyListByStation : familyListByStationList){
             assertThat(familyListByStation.getLastName(), containsString("gavillot"));
+        }
+    }
+
+    // URL 6
+    @Test
+    @DisplayName("Test personInfo")
+    public void personInfoTest() throws ParseException{
+        listPersons = new ArrayList<>();
+        Person person = new Person();
+        person.setFirstName("karl");
+        person.setLastName("gavillot");
+        person.setAddress("voltaire");
+        person.setZip("92100");
+        person.setPhone("0677777777");
+        person.setEmail("karl@gmail.com");
+        listPersons.add(person);
+
+        Medicalrecord medicalrecord = new Medicalrecord();
+        List<String> medications = new ArrayList<>();
+        medications.add("hydroxycloroquine");
+        medications.add("ivermectine");
+        List<String> allergies = new ArrayList<>();
+        allergies.add("covid");
+        allergies.add("grippe");
+        medicalrecord.setFirstName("karl");
+        medicalrecord.setLastName("gavillot");
+        medicalrecord.setBirthdate("08/30/1979");
+        medicalrecord.setMedications(medications);
+        medicalrecord.setAllergies(allergies);
+
+        when(personRepositoryInterface.findByFirstNameLastName("karl", "gavillot")).thenReturn(listPersons);
+        when(medicalrecordRepositoryInterface.findByFirstName(person.getFirstName())).thenReturn(medicalrecord);
+
+        for (PersonInfoDto personInfoDto : urlEndpointService.personsInfo("karl", "gavillot")){
+            assertThat(personInfoDto.getLastName(), containsString("gavillot"));
+            assertThat(personInfoDto.getEmail(), containsString("karl@gmail.com"));
+            assertThat(personInfoDto.getMedications().toString(), containsString(medications.toString()));
+            assertThat(personInfoDto.getAllergies().toString(), containsString(allergies.toString()));
         }
     }
 

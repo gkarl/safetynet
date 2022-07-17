@@ -64,6 +64,16 @@ public class PersonRepository implements PersonRepositoryInterface {
         return listPerson;
     }
 
+    @Override
+    public List<Person> findByFirstNameLastName(String firstName, String lastName) {
+        List<Person> listPerson = new ArrayList<Person>();
+        for (Person person : database.getPersons()){
+            if (person.getFirstName().equals(firstName) && (person.getLastName().equals(lastName))){
+                listPerson.add(person);
+            }
+        }
+        return listPerson;
+    }
 
 
 }

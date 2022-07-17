@@ -7,6 +7,7 @@ import com.SafetyNet.alerts.dto.url3phoneAlert.PhoneAlertListDto;
 import com.SafetyNet.alerts.dto.url4fire.PersonFireAddress;
 import com.SafetyNet.alerts.dto.url4fire.PersonListByAddress;
 import com.SafetyNet.alerts.dto.url5flood.FamilyListByStation;
+import com.SafetyNet.alerts.dto.url6personInfo.PersonInfoDto;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.model.Medicalrecord;
 import com.SafetyNet.alerts.model.Person;
@@ -17,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -171,4 +171,19 @@ public class UrlEndpointService {
         return familyListByStation;
     }
 
+    // URL 6 personInfo
+    public List<PersonInfoDto> personsInfo(String firstName, String lastName) throws ParseException {
+
+        List<Person>        listPersonsB      = personRepositoryInterface.findByFirstNameLastName(firstName, lastName);
+        List<Person>        listPersons       = new ArrayList<Person>(listPersonsB);
+        List<PersonInfoDto> personInfoDtoList = new ArrayList<PersonInfoDto>();
+        CalculeService calculator = new CalculeService();
+        for (Person person : listPersons) {
+            Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
+            calculator.calculateAge(medicalrecord.getBirthdate());
+            personInfoDtoList.add(new PersonInfoDto(person.getLastName(), person.getAddress(), calculator.getAge(), person.getEmail(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
+        }
+        logger.info("personsInfo SUCCESS :" + (firstName + lastName));
+        return personInfoDtoList;
+    }
 }
