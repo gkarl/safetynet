@@ -4,6 +4,7 @@ import com.SafetyNet.alerts.dto.url1firestation.PersonsByStationDto;
 import com.SafetyNet.alerts.dto.url2childAlert.ChildByAddressDto;
 import com.SafetyNet.alerts.dto.url3phoneAlert.PhoneAlertListDto;
 import com.SafetyNet.alerts.dto.url4fire.PersonListByAddress;
+import com.SafetyNet.alerts.dto.url5flood.FamilyListByStation;
 import com.SafetyNet.alerts.service.UrlEndpointService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
+import java.util.List;
 
 @RestController
 public class UrlEndpointsController {
@@ -48,5 +50,12 @@ public class UrlEndpointsController {
     public PersonListByAddress personsByAddress(@RequestParam("address") String address) throws ParseException{
         logger.info("GET personsByAddress SUCCESS :");
         return urlEndpointService.personsByAddress(address);
+    }
+
+    // URL 5 flood
+    @GetMapping("flood/stations")
+    public List<FamilyListByStation> familyByFirestation(@RequestParam(value = "stations") List<Integer> stations) throws ParseException{
+        logger.info("GET familyByFirestation SUCCESS :");
+        return urlEndpointService.familyByStation(stations);
     }
 }

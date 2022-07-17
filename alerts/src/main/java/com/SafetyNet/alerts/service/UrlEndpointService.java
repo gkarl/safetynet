@@ -6,6 +6,7 @@ import com.SafetyNet.alerts.dto.url2childAlert.PersonsWithAge;
 import com.SafetyNet.alerts.dto.url3phoneAlert.PhoneAlertListDto;
 import com.SafetyNet.alerts.dto.url4fire.PersonFireAddress;
 import com.SafetyNet.alerts.dto.url4fire.PersonListByAddress;
+import com.SafetyNet.alerts.dto.url5flood.FamilyListByStation;
 import com.SafetyNet.alerts.model.Firestation;
 import com.SafetyNet.alerts.model.Medicalrecord;
 import com.SafetyNet.alerts.model.Person;
@@ -146,6 +147,28 @@ public class UrlEndpointService {
         else {
             return null;
         }
+    }
+
+    // URL 5 flood
+    public List<FamilyListByStation> familyByStation(List<Integer> stations) throws ParseException{
+        List<FamilyListByStation> familyListByStation = new ArrayList<>();
+        CalculeService calculeService = new CalculeService();
+        List<Person> listPersons = new ArrayList<>();
+        for (Integer station : stations){
+            for (Firestation firestation : firestationRepositoryInterface.findAddressByStation(station)){
+               List<Person> listPersons1 = personRepositoryInterface.findByAddress(firestation.getAddress());
+               listPersons.addAll(listPersons1);
+            }
+            List<Medicalrecord> listMedicalrecords = new ArrayList<>();
+            for (Person person : listPersons){
+                Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
+                listMedicalrecords.add(medicalrecord);
+                calculeService.calculateAge(medicalrecord.getBirthdate());
+                familyListByStation.add(new FamilyListByStation(person.getLastName(), person.getPhone(), calculeService.getAge(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
+            }
+        }
+        logger.info("familyByStation SUCCESSS :" + stations);
+        return familyListByStation;
     }
 
 }

@@ -1,18 +1,18 @@
-2022-07-16 10:07:48,543 INFO o.s.b.StartupInfoLogger [main] Starting AlertsApplication using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 24168 (E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts\target\classes started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
-2022-07-16 10:07:48,554 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-07-16 10:07:50,518 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2022-07-16 10:07:50,540 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
-2022-07-16 10:07:50,541 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
-2022-07-16 10:07:50,544 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
-2022-07-16 10:07:50,825 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2022-07-16 10:07:50,825 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2207 ms
-2022-07-16 10:07:51,649 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
-2022-07-16 10:07:52,084 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
-2022-07-16 10:07:52,116 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
-2022-07-16 10:07:52,140 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2022-07-16 10:07:52,164 INFO o.s.b.StartupInfoLogger [main] Started AlertsApplication in 4.291 seconds (JVM running for 6.762)
-2022-07-16 10:07:52,769 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(1)-192.168.137.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-07-16 10:07:52,770 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(1)-192.168.137.1] Initializing Servlet 'dispatcherServlet'
-2022-07-16 10:07:52,772 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(1)-192.168.137.1] Completed initialization in 1 ms
-2022-07-16 10:09:48,430 INFO c.S.a.c.UrlEndpointsController [http-nio-8080-exec-1] GET personsByAddress SUCCESS :
-2022-07-16 10:09:48,446 INFO c.S.a.s.UrlEndpointService [http-nio-8080-exec-1] personsByAddress SUCCESS :1509 Culver St
+2022-07-17 10:01:43,971 INFO o.s.b.StartupInfoLogger [main] Starting AlertsApplication using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 14452 (E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts\target\classes started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
+2022-07-17 10:01:43,985 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-07-17 10:01:45,596 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-07-17 10:01:45,616 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-07-17 10:01:45,617 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2022-07-17 10:01:45,619 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-17 10:01:45,876 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-07-17 10:01:45,876 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1827 ms
+2022-07-17 10:01:46,676 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-07-17 10:01:47,093 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-07-17 10:01:47,124 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-07-17 10:01:47,147 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-17 10:01:47,168 INFO o.s.b.StartupInfoLogger [main] Started AlertsApplication in 3.912 seconds (JVM running for 6.415)
+2022-07-17 10:01:48,723 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(3)-192.168.137.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-17 10:01:48,724 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-192.168.137.1] Initializing Servlet 'dispatcherServlet'
+2022-07-17 10:01:48,727 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-192.168.137.1] Completed initialization in 2 ms
+2022-07-17 10:04:04,379 INFO c.S.a.c.UrlEndpointsController [http-nio-8080-exec-1] GET familyByFirestation SUCCESS :
+2022-07-17 10:04:04,393 INFO c.S.a.s.UrlEndpointService [http-nio-8080-exec-1] familyByStation SUCCESSS :[1, 2]
