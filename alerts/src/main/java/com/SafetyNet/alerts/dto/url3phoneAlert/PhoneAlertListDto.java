@@ -13,4 +13,9 @@ public class PhoneAlertListDto {
     public List<String> getListPhones() {
         return listPhones;
     }
+
+    @Override
+    public String toString(){
+        return "PhoneAlertListDto [listPhones=" + getListPhones() + "]";
+    }
 }

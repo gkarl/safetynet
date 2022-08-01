@@ -38,6 +38,6 @@ public class PersonsWithAge {
 
     @Override
     public String toString(){
-        return "ChildByAddressDto [firstName=" + getFirstName() + ", lastName=" + getLastName() + ", age= " + getAge() + "]";
+        return " [firstName=" + getFirstName() + ", lastName=" + getLastName() + ", age= " + getAge() + "]";
     }
 }

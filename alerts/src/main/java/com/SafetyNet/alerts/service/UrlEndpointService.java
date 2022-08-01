@@ -80,7 +80,7 @@ public class UrlEndpointService {
                 calculeService.calculateAge(medicalrecord.getBirthdate());
             }
         }
-        logger.info("GET allPersonsByStation SUCCESS");
+        logger.info("GET allPersonsByStation SUCCESS : station = " + stationNumber + " , " + new PersonsByStationDto(listPersonsStation, calculeService.getAdults(), calculeService.getChildren()));
         return new PersonsByStationDto(listPersonsStation, calculeService.getAdults(), calculeService.getChildren());
     }
 
@@ -110,7 +110,7 @@ public class UrlEndpointService {
         }
         childByAddressDto.setChildren(childsList);
         childByAddressDto.setAdults(adultsList);
-        logger.info("childsByAddress SUCCESS" + address);
+        logger.info("childsByAddress SUCCESS : address = " + address + " , " + childByAddressDto);
         return childByAddressDto;
     }
 
@@ -124,7 +124,7 @@ public class UrlEndpointService {
         for (Person person : listPersons) {
             listPhones.add(person.getPhone());
         }
-        logger.info("phonesByFirestation SUCCESS :" + firestation);
+        logger.info("phonesByFirestation SUCCESS : firestation = " + firestation + " , " + new PhoneAlertListDto(listPhones));
         return new PhoneAlertListDto(listPhones);
     }
 
@@ -133,8 +133,7 @@ public class UrlEndpointService {
         Firestation firestationNumber = firestationRepositoryInterface.findById(address);
 
         if (firestationNumber != null){
-            List<Person> listPersonsC = personRepositoryInterface.findByAddress(firestationNumber.getAddress());
-            List<Person> listPersons = new ArrayList<>(listPersonsC);
+            List<Person> listPersons = personRepositoryInterface.findByAddress(firestationNumber.getAddress());
             List<PersonFireAddress> listPersonByAddress = new ArrayList<>();
             CalculeService calculeService = new CalculeService();
             for (Person person : listPersons){
@@ -142,7 +141,7 @@ public class UrlEndpointService {
                 calculeService.calculateAge(medicalrecord.getBirthdate());
                 listPersonByAddress.add(new PersonFireAddress(person.getLastName(), person.getPhone(), calculeService.getAge(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
             }
-            logger.info("personsByAddress SUCCESS :" + address);
+            logger.info("personsByAddress SUCCESS : address = " + address + " , " + new PersonListByAddress(firestationNumber, listPersonByAddress));
             return new PersonListByAddress(firestationNumber, listPersonByAddress);
         }
         else {
@@ -168,15 +167,13 @@ public class UrlEndpointService {
                 familyListByStation.add(new FamilyListByStation(person.getLastName(), person.getPhone(), calculeService.getAge(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
             }
         }
-        logger.info("familyByStation SUCCESSS :" + stations);
+        logger.info("familyByStation SUCCESSS : stations = " + stations + " , " + familyListByStation);
         return familyListByStation;
     }
 
     // URL 6 personInfo
     public List<PersonInfoDto> personsInfo(String firstName, String lastName) throws ParseException {
-
-        List<Person>        listPersonsB      = personRepositoryInterface.findByFirstNameLastName(firstName, lastName);
-        List<Person>        listPersons       = new ArrayList<Person>(listPersonsB);
+        List<Person> listPersons = personRepositoryInterface.findByFirstNameLastName(firstName, lastName);
         List<PersonInfoDto> personInfoDtoList = new ArrayList<PersonInfoDto>();
         CalculeService calculator = new CalculeService();
         for (Person person : listPersons) {
@@ -184,7 +181,7 @@ public class UrlEndpointService {
             calculator.calculateAge(medicalrecord.getBirthdate());
             personInfoDtoList.add(new PersonInfoDto(person.getLastName(), person.getAddress(), calculator.getAge(), person.getEmail(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
         }
-        logger.info("personsInfo SUCCESS :" + (firstName + lastName));
+        logger.info("personsInfo SUCCESS : firstName lastName = " + (firstName + " , " + lastName + " " + personInfoDtoList));
         return personInfoDtoList;
     }
 
@@ -198,7 +195,7 @@ public class UrlEndpointService {
         for (Person person : listPersons) {
             listEmails.add(person.getEmail());
         }
-        logger.info("emailsByCity SUCCESS :" + city);
+        logger.info("emailsByCity SUCCESS : city = " + city + " , " + new EmailListDto(listEmails));
         return new EmailListDto(listEmails);
     }
 

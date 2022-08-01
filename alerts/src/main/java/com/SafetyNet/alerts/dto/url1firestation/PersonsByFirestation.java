@@ -44,4 +44,8 @@ public class PersonsByFirestation {
         return phone;
     }
 
+    @Override
+    public String toString(){
+        return "PersonsByStationDto [firstName=" + getFirstName() + ", lastName=" + getLastName() + ", address= " + getAddress() + ", phone= " + getPhone() + "]";
+    }
 }

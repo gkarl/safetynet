@@ -48,6 +48,6 @@ public class FamilyListByStation {
 
     @Override
     public String toString(){
-        return "Flood [" + getLastName() + ", " + getPhone() + ", " + getAge() + ", " + getMedications() + ", " + getAllergies() + "]";
+        return " [lastName=" + getLastName() + ", phone=" + getPhone() + ", age=" + getAge() + ", medications=" + getMedications() + ", allergies =" + getAllergies() + "]";
     }
 }

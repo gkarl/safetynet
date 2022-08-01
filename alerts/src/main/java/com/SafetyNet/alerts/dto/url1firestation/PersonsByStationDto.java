@@ -48,5 +48,8 @@ public class PersonsByStationDto {
         return listPersonsStation;
     }
 
-
+    @Override
+    public String toString(){
+        return "PersonsByStationDto [listPersonsStation=" + getListPersonsStation() + ", adults=" + getAdults() + ", children=" + getChildren() + "]";
+    }
 }

@@ -70,6 +70,6 @@ public class PersonInfoDto {
 
     @Override
     public String toString(){
-        return "Flood [" + getLastName() + ", " + getAddress() + ", " + getAge() + ", " + getEmail() + ", " + getMedications() + ", " + getAllergies() + "]";
+        return " [lastName=" + getLastName() + ", address=" + getAddress() + ", age=" + getAge() + ", email=" + getEmail() + ", medications=" + getMedications() + ", allergies =" + getAllergies() + "]";
     }
 }
