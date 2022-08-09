@@ -1,18 +1,176 @@
-2022-08-01 12:59:36,729 INFO o.s.b.StartupInfoLogger [main] Starting AlertsApplication using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 26292 (E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts\target\classes started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
-2022-08-01 12:59:36,742 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-08-01 12:59:38,249 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2022-08-01 12:59:38,270 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
-2022-08-01 12:59:38,271 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
-2022-08-01 12:59:38,273 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
-2022-08-01 12:59:38,535 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2022-08-01 12:59:38,536 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1736 ms
-2022-08-01 12:59:39,331 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
-2022-08-01 12:59:39,730 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
-2022-08-01 12:59:39,759 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
-2022-08-01 12:59:39,781 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2022-08-01 12:59:39,802 INFO o.s.b.StartupInfoLogger [main] Started AlertsApplication in 3.786 seconds (JVM running for 6.0)
-2022-08-01 12:59:40,345 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(1)-192.168.137.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-01 12:59:40,346 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(1)-192.168.137.1] Initializing Servlet 'dispatcherServlet'
-2022-08-01 12:59:40,348 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(1)-192.168.137.1] Completed initialization in 2 ms
-2022-08-01 12:59:45,661 INFO c.S.a.c.UrlEndpointsController [http-nio-8080-exec-2] GET emailsByCity SUCCESS
-2022-08-01 12:59:45,665 INFO c.S.a.s.UrlEndpointService [http-nio-8080-exec-2] emailsByCity SUCCESS : city = Culver , EmailList [[jaboyd@email.com, drk@email.com, tenz@email.com, jaboyd@email.com, jaboyd@email.com, drk@email.com, tenz@email.com, jaboyd@email.com, jaboyd@email.com, tcoop@ymail.com, lily@email.com, soph@email.com, ward@email.com, zarc@email.com, reg@email.com, jpeter@email.com, jpeter@email.com, aly@imail.com, bstel@email.com, ssanw@email.com, bstel@email.com, clivfd@ymail.com, gramps@email.com]]
+2022-08-08 19:12:21,672 WARN o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [main] 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/KARL/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/KARL/.m2/repository/org/json/json/20200518/json-20200518.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2022-08-08 19:12:21,759 INFO o.s.b.StartupInfoLogger [main] Starting AlertsApplicationTests using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 36248 (started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
+2022-08-08 19:12:21,774 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-08 19:12:26,645 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-08-08 19:12:27,928 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-08-08 19:12:28,049 INFO o.s.b.StartupInfoLogger [main] Started AlertsApplicationTests in 7.256 seconds (JVM running for 12.155)
+2022-08-08 19:12:29,262 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.SafetyNet.alerts.controller.FirestationControllerTest], using SpringBootContextLoader
+2022-08-08 19:12:29,265 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.SafetyNet.alerts.controller.FirestationControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-08-08 19:12:29,266 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.SafetyNet.alerts.controller.FirestationControllerTest]: FirestationControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-08-08 19:12:29,361 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.SafetyNet.alerts.AlertsApplication for test class com.SafetyNet.alerts.controller.FirestationControllerTest
+2022-08-08 19:12:29,365 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-08-08 19:12:29,368 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@fa292da, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@226d1dbb, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@48314a17, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7ca3c6ba, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@678cbfb6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2dc6f639, org.springframework.test.context.event.EventPublishingTestExecutionListener@6f657064, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@d91fd24, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@fe2822f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@150fcad4, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@51ad6e41, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5357d18d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@48bfd232]
+2022-08-08 19:12:29,460 WARN o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [main] 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/KARL/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/KARL/.m2/repository/org/json/json/20200518/json-20200518.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2022-08-08 19:12:29,466 INFO o.s.b.StartupInfoLogger [main] Starting FirestationControllerTest using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 36248 (started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
+2022-08-08 19:12:29,469 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-08 19:12:30,882 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-08-08 19:12:31,383 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2022-08-08 19:12:31,384 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
+2022-08-08 19:12:31,386 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 1 ms
+2022-08-08 19:12:31,422 INFO o.s.b.StartupInfoLogger [main] Started FirestationControllerTest in 2.045 seconds (JVM running for 15.529)
+2022-08-08 19:12:31,659 INFO c.S.a.c.FirestationController [main] GET findFirestationAll SUCCESS
+2022-08-08 19:12:31,903 INFO c.S.a.c.FirestationController [main] DELETE deleteFirestation SUCCESS
+2022-08-08 19:12:31,964 INFO c.S.a.c.FirestationController [main] POST createFirestation SUCCESS
+2022-08-08 19:12:31,986 INFO c.S.a.c.FirestationController [main] PUT updateFirestation SUCCESS
+2022-08-08 19:12:32,014 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.SafetyNet.alerts.controller.MedicalrecordControllerTest], using SpringBootContextLoader
+2022-08-08 19:12:32,022 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.SafetyNet.alerts.controller.MedicalrecordControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-08-08 19:12:32,023 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.SafetyNet.alerts.controller.MedicalrecordControllerTest]: MedicalrecordControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-08-08 19:12:32,046 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.SafetyNet.alerts.AlertsApplication for test class com.SafetyNet.alerts.controller.MedicalrecordControllerTest
+2022-08-08 19:12:32,051 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-08-08 19:12:32,055 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7c35e98f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5495020c, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3abb6a31, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@fe54627, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5c4fafc5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@20365322, org.springframework.test.context.event.EventPublishingTestExecutionListener@41bd5ff7, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@644cfd99, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@45dc4752, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@57e1b388, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7c081c64, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7fab9649, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@586ab839]
+2022-08-08 19:12:32,129 WARN o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [main] 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/KARL/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/KARL/.m2/repository/org/json/json/20200518/json-20200518.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2022-08-08 19:12:32,133 INFO o.s.b.StartupInfoLogger [main] Starting MedicalrecordControllerTest using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 36248 (started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
+2022-08-08 19:12:32,135 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-08 19:12:32,901 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-08-08 19:12:33,344 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2022-08-08 19:12:33,345 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
+2022-08-08 19:12:33,346 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 1 ms
+2022-08-08 19:12:33,371 INFO o.s.b.StartupInfoLogger [main] Started MedicalrecordControllerTest in 1.301 seconds (JVM running for 17.478)
+2022-08-08 19:12:33,390 INFO c.S.a.c.MedicalrecordController [main] DELETE deleteMedicalrecord SUCCESS
+2022-08-08 19:12:33,421 INFO c.S.a.c.MedicalrecordController [main] POST createMedicalRecord SUCCESS
+2022-08-08 19:12:33,440 INFO c.S.a.c.MedicalrecordController [main] PUT updateMedicalrecord SUCCESS
+2022-08-08 19:12:33,467 INFO c.S.a.c.MedicalrecordController [main] GET findMedicalRecordAll SUCCESS
+2022-08-08 19:12:33,496 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.SafetyNet.alerts.controller.PersonControllerTest], using SpringBootContextLoader
+2022-08-08 19:12:33,499 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.SafetyNet.alerts.controller.PersonControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-08-08 19:12:33,501 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.SafetyNet.alerts.controller.PersonControllerTest]: PersonControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-08-08 19:12:33,514 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.SafetyNet.alerts.AlertsApplication for test class com.SafetyNet.alerts.controller.PersonControllerTest
+2022-08-08 19:12:33,516 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-08-08 19:12:33,521 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@29dea04f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2c7d8547, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4af4398a, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@a95a50b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5695a0ce, org.springframework.test.context.support.DirtiesContextTestExecutionListener@160250e6, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d5103c5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5a4b4c99, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@21a314ce, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2522e57c, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@50989536, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@50373438, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@698b4f94]
+2022-08-08 19:12:33,575 WARN o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [main] 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/KARL/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/KARL/.m2/repository/org/json/json/20200518/json-20200518.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2022-08-08 19:12:33,579 INFO o.s.b.StartupInfoLogger [main] Starting PersonControllerTest using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 36248 (started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
+2022-08-08 19:12:33,582 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-08 19:12:34,209 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-08-08 19:12:34,609 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2022-08-08 19:12:34,610 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
+2022-08-08 19:12:34,611 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 1 ms
+2022-08-08 19:12:34,638 INFO o.s.b.StartupInfoLogger [main] Started PersonControllerTest in 1.109 seconds (JVM running for 18.745)
+2022-08-08 19:12:34,719 INFO c.S.a.c.PersonController [main] DELETE deletePerson SUCCESS
+2022-08-08 19:12:34,760 INFO c.S.a.c.PersonController [main] PUT updatePerson SUCCESS
+2022-08-08 19:12:34,784 INFO c.S.a.c.PersonController [main] POST addPerson SUCCESS
+2022-08-08 19:12:34,802 INFO c.S.a.c.PersonController [main] GET findPersonAll SUCCESS
+2022-08-08 19:12:34,820 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.SafetyNet.alerts.controller.UrlEndpointsControllerTest], using SpringBootContextLoader
+2022-08-08 19:12:34,822 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.SafetyNet.alerts.controller.UrlEndpointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-08-08 19:12:34,823 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.SafetyNet.alerts.controller.UrlEndpointsControllerTest]: UrlEndpointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-08-08 19:12:34,832 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.SafetyNet.alerts.AlertsApplication for test class com.SafetyNet.alerts.controller.UrlEndpointsControllerTest
+2022-08-08 19:12:34,837 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-08-08 19:12:34,840 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@147894f0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4f0aa51e, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3ab2eed2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1db53124, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4dbaf976, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5782978a, org.springframework.test.context.event.EventPublishingTestExecutionListener@7aeb37d6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4e6315be, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5408344d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@17f5d781, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3483072e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@629b2ae5, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@77a4c0a7]
+2022-08-08 19:12:34,893 WARN o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [main] 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/KARL/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/KARL/.m2/repository/org/json/json/20200518/json-20200518.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2022-08-08 19:12:34,896 INFO o.s.b.StartupInfoLogger [main] Starting UrlEndpointsControllerTest using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 36248 (started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
+2022-08-08 19:12:34,898 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-08 19:12:36,112 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-08-08 19:12:36,734 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2022-08-08 19:12:36,734 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
+2022-08-08 19:12:36,748 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-08-08 19:12:36,812 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 77 ms
+2022-08-08 19:12:36,856 INFO o.s.b.StartupInfoLogger [main] Started UrlEndpointsControllerTest in 2.01 seconds (JVM running for 20.964)
+2022-08-08 19:12:36,883 INFO c.S.a.c.UrlEndpointsController [main] GET emailsByCity SUCCESS
+2022-08-08 19:12:36,894 INFO c.S.a.s.UrlEndpointService [main] emailsByCity SUCCESS : city = Culver , EmailList [[jaboyd@email.com, drk@email.com, tenz@email.com, jaboyd@email.com, jaboyd@email.com, drk@email.com, tenz@email.com, jaboyd@email.com, jaboyd@email.com, tcoop@ymail.com, lily@email.com, soph@email.com, ward@email.com, zarc@email.com, reg@email.com, jpeter@email.com, jpeter@email.com, aly@imail.com, bstel@email.com, ssanw@email.com, bstel@email.com, clivfd@ymail.com, gramps@email.com]]
+2022-08-08 19:12:36,929 WARN o.s.w.s.h.AbstractHandlerExceptionResolver [main] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: ""]
+2022-08-08 19:12:36,943 INFO c.S.a.c.UrlEndpointsController [main] GET childsByAddress SUCCESS :
+2022-08-08 19:12:36,949 INFO c.S.a.s.UrlEndpointService [main] childsByAddress SUCCESS : address =  , ChildByAddressDto [children=[], adults=[]]
+2022-08-08 19:12:36,970 WARN o.s.w.s.h.AbstractHandlerExceptionResolver [main] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "ok"]
+2022-08-08 19:12:36,986 INFO c.S.a.c.UrlEndpointsController [main] GET phonesByFirestation SUCCESS :
+2022-08-08 19:12:36,994 INFO c.S.a.s.UrlEndpointService [main] phonesByFirestation SUCCESS : firestation = 1 , PhoneAlertListDto [listPhones=[841-874-6512, 841-874-8547, 841-874-7462, 841-874-7784, 841-874-7784, 841-874-7784]]
+2022-08-08 19:12:37,013 INFO c.S.a.c.UrlEndpointsController [main] GET familyByFirestation SUCCESS :
+2022-08-08 19:12:37,047 INFO c.S.a.s.UrlEndpointService [main] familyByStation SUCCESSS : stations = [3] , [ [lastName=Boyd, phone=841-874-6512, age=38, medications=[aznol:350mg, hydrapermazol:100mg], allergies =[nillacilan]],  [lastName=Boyd, phone=841-874-6513, age=33, medications=[pharmacol:5000mg, terazine:10mg, noznazol:250mg], allergies =[]],  [lastName=Boyd, phone=841-874-6512, age=10, medications=[], allergies =[peanut]],  [lastName=Boyd, phone=841-874-6512, age=4, medications=[], allergies =[]],  [lastName=Boyd, phone=841-874-6544, age=36, medications=[tetracyclaz:650mg], allergies =[xilliathal]],  [lastName=Carman, phone=841-874-6512, age=10, medications=[], allergies =[]],  [lastName=Shepard, phone=841-874-6544, age=42, medications=[], allergies =[]],  [lastName=Ferguson, phone=841-874-6741, age=28, medications=[], allergies =[]],  [lastName=Cooper, phone=841-874-6874, age=28, medications=[hydrapermazol:300mg, dodoxadin:30mg], allergies =[shellfish]],  [lastName=Peters, phone=841-874-8888, age=57, medications=[], allergies =[]],  [lastName=Boyd, phone=841-874-9888, age=57, medications=[aznol:200mg], allergies =[nillacilan]],  [lastName=Shepard, phone=841-874-6544, age=42, medications=[], allergies =[]],  [lastName=Ferguson, phone=841-874-6741, age=28, medications=[], allergies =[]]]
+2022-08-08 19:12:37,068 INFO c.S.a.c.UrlEndpointsController [main] GET personsInfo SUCCESS
+2022-08-08 19:12:37,106 INFO c.S.a.s.UrlEndpointService [main] personsInfo SUCCESS : firstName lastName = Eric , Cadigan [ [lastName=Cadigan, address=951 LoneTree Rd, age=77, email=gramps@email.com, medications=[tradoxidine:400mg], allergies =[]]]
+2022-08-08 19:12:37,134 INFO c.S.a.c.UrlEndpointsController [main] GET allPersonByStation SUCCESS :
+2022-08-08 19:12:37,177 INFO c.S.a.s.UrlEndpointService [main] GET allPersonsByStation SUCCESS : station = 1 , PersonsByStationDto [listPersonsStation=[Peter, Duncan, 644 Gershwin Cir, Culver, 97451, 841-874-6512, jaboyd@email.com
+, Reginold, Walker, 908 73rd St, Culver, 97451, 841-874-8547, reg@email.com
+, Jamie, Peters, 908 73rd St, Culver, 97451, 841-874-7462, jpeter@email.com
+, Brian, Stelzer, 947 E. Rose Dr, Culver, 97451, 841-874-7784, bstel@email.com
+, Shawna, Stelzer, 947 E. Rose Dr, Culver, 97451, 841-874-7784, ssanw@email.com
+, Kendrik, Stelzer, 947 E. Rose Dr, Culver, 97451, 841-874-7784, bstel@email.com
+], adults=5, children=1]
+2022-08-08 19:12:37,197 WARN o.s.w.s.h.AbstractHandlerExceptionResolver [main] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "ok"]
+2022-08-08 19:12:37,210 INFO c.S.a.c.UrlEndpointsController [main] GET personsByAddress SUCCESS :
+2022-08-08 19:12:37,222 INFO c.S.a.s.UrlEndpointService [main] personsByAddress SUCCESS : address = 1509 Culver St , firestationNumber [firestation=1509 Culver St, 3
+, [ [lastName=Boyd, phone=841-874-6512, age=38, medications=[aznol:350mg, hydrapermazol:100mg], allergies =[nillacilan]],  [lastName=Boyd, phone=841-874-6513, age=33, medications=[pharmacol:5000mg, terazine:10mg, noznazol:250mg], allergies =[]],  [lastName=Boyd, phone=841-874-6512, age=10, medications=[], allergies =[peanut]],  [lastName=Boyd, phone=841-874-6512, age=4, medications=[], allergies =[]],  [lastName=Boyd, phone=841-874-6544, age=36, medications=[tetracyclaz:650mg], allergies =[xilliathal]]]]
+2022-08-08 19:12:37,245 INFO c.S.a.c.UrlEndpointsController [main] GET childsByAddress SUCCESS :
+2022-08-08 19:12:37,246 INFO c.S.a.s.UrlEndpointService [main] childsByAddress SUCCESS : address = 1892 Downing Ct , ChildByAddressDto [children=[], adults=[]]
+2022-08-08 19:12:37,265 WARN o.s.w.s.h.AbstractHandlerExceptionResolver [main] Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'lastName' for method parameter type String is not present]
+2022-08-08 19:12:37,592 INFO c.S.a.s.FirestationService [main] Create Firestation SUCCESS :voltaire, 16
+
+2022-08-08 19:12:37,615 INFO c.S.a.s.FirestationService [main] findAddressByStation SUCCESS :
+2022-08-08 19:12:37,619 INFO c.S.a.s.FirestationService [main] GET all Firestation SUCCESS
+2022-08-08 19:12:37,624 INFO c.S.a.s.FirestationService [main] Update Firestation SUCCESS :voltaire, 16
+
+2022-08-08 19:12:37,631 INFO c.S.a.s.FirestationService [main] GET all Firestation SUCCESS
+2022-08-08 19:12:37,678 INFO c.S.a.s.MedicalrecordService [main] GET all Medicalrecord SUCCESS :
+2022-08-08 19:12:37,704 INFO c.S.a.s.MedicalrecordService [main] Create Medicalrecord SUCCESS :karl, gavillot, 16/02/1999, [hydroxycloroquine, ivermectine], [covid, grippe]
+
+2022-08-08 19:12:37,713 INFO c.S.a.s.MedicalrecordService [main] deleteMedicalrecord SUCCESS :karlgavillot
+2022-08-08 19:12:37,720 INFO c.S.a.s.MedicalrecordService [main] GET all Medicalrecord SUCCESS :
+2022-08-08 19:12:37,732 INFO c.S.a.s.MedicalrecordService [main] Update Medicalrecord SUCCESS :karl, gavillot, 16/02/1999, [hydroxycloroquine, ivermectine], [covid, grippe]
+
+2022-08-08 19:12:37,779 INFO c.S.a.s.PersonService [main] Create Person SUCCESS :karl, gavillot, voltaire, boulogne, 92100, 0677777777, karl@gmail.com
+
+2022-08-08 19:12:37,784 INFO c.S.a.s.PersonService [main] findByAddress SUCCESS :voltaire
+2022-08-08 19:12:37,788 INFO c.S.a.s.PersonService [main] Create Person SUCCESS :karl, gavillot, voltaire, boulogne, 92100, 0677777777, karl@gmail.com
+
+2022-08-08 19:12:37,789 INFO c.S.a.s.PersonService [main] deletePerson SUCCESSkarlgavillot
+2022-08-08 19:12:37,796 INFO c.S.a.s.PersonService [main] Update Person SUCCESS :karl, gavillot, voltaire, boulogne, 92100, 0677777777, karl@gmail.com
+
+2022-08-08 19:12:37,801 INFO c.S.a.s.PersonService [main] GET all Persons SUCCESS
+2022-08-08 19:12:37,888 INFO c.S.a.s.UrlEndpointService [main] emailsByCity SUCCESS : city = boulogne , EmailList [[karl@gmail.com]]
+2022-08-08 19:12:37,894 INFO c.S.a.s.UrlEndpointService [main] phonesByFirestation SUCCESS : firestation = 7 , PhoneAlertListDto [listPhones=[0677777777]]
+2022-08-08 19:12:37,903 INFO c.S.a.s.UrlEndpointService [main] familyByStation SUCCESSS : stations = [1, 2] , [ [lastName=gavillot, phone=0677777777, age=42, medications=[hydroxycloroquine, ivermectine], allergies =[covid, grippe]],  [lastName=gavillot, phone=0677777777, age=42, medications=[hydroxycloroquine, ivermectine], allergies =[covid, grippe]],  [lastName=gavillot, phone=0677777777, age=42, medications=[hydroxycloroquine, ivermectine], allergies =[covid, grippe]]]
+2022-08-08 19:12:37,912 INFO c.S.a.s.UrlEndpointService [main] GET allPersonsByStation SUCCESS : station = 2 , PersonsByStationDto [listPersonsStation=[karl, gavillot, voltaire, boulogne, 92100, 0677777777, karl@gmail.com
+], adults=1, children=0]
+2022-08-08 19:12:37,916 INFO c.S.a.s.UrlEndpointService [main] GET allPersonsByStation SUCCESS : station = 2 , PersonsByStationDto [listPersonsStation=[karl, gavillot, voltaire, boulogne, 92100, 0677777777, karl@gmail.com
+], adults=1, children=0]
+2022-08-08 19:12:37,927 INFO c.S.a.s.UrlEndpointService [main] personsInfo SUCCESS : firstName lastName = karl , gavillot [ [lastName=gavillot, address=voltaire, age=42, email=karl@gmail.com, medications=[hydroxycloroquine, ivermectine], allergies =[covid, grippe]]]
+2022-08-08 19:12:37,939 INFO c.S.a.s.UrlEndpointService [main] personsByAddress SUCCESS : address = voltaire , firestationNumber [firestation=voltaire, 7
+, [ [lastName=gavillot, phone=0677777777, age=42, medications=[hydroxycloroquine, ivermectine], allergies =[covid, grippe]]]]
+2022-08-08 19:12:37,959 INFO c.S.a.s.UrlEndpointService [main] childsByAddress SUCCESS : address = voltaire , ChildByAddressDto [children=[], adults=[ [firstName=karl, lastName=gavillot, age= 42]]]
