@@ -60,6 +60,6 @@ public class PersonFireAddress {
 
     @Override
     public String toString(){
-        return " [lastName=" + getLastName() + ", phone=" + getPhone() + ", age=" + getAge() + ", medications=" + getMedications() + ", allergies =" + getAllergies() + "]";
+        return "listPersonsByAddress [lastName=" + getLastName() + ", phone=" + getPhone() + ", age=" + getAge() + ", medications=" + getMedications() + ", allergies =" + getAllergies() + "]";
     }
 }

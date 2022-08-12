@@ -55,7 +55,7 @@ public class PersonController {
         if (newPersons != null){
             logger.info("POST addPerson SUCCESS");
         } else {
-            logger.info("POST addPerson FAILED");
+            logger.error("POST addPerson FAILED");
         }
         return newPersons;
     }
@@ -66,7 +66,7 @@ public class PersonController {
         if ( updatePersonOutput != null){
             logger.info("PUT updatePerson SUCCESS");
         } else {
-            logger.info("PUT updatePerson FAILED");
+            logger.error("PUT updatePerson FAILED");
         }
         return updatePersonOutput;
     }

@@ -32,6 +32,6 @@ public class PersonListByAddress {
 
     @Override
     public String toString(){
-        return "firestationNumber [firestation=" + getFirestationNumber() + ", " + getListPersonsByAddress() + "]";
+        return "firestationNumber [" + getFirestationNumber() + ", " + getListPersonsByAddress() + "]";
     }
 }

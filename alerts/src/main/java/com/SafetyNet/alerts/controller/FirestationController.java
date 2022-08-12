@@ -32,7 +32,7 @@ public class FirestationController {
         if (findFirestation != null){
             logger.info("GET findFirestationAll SUCCESS");
         } else {
-            logger.info("GET findFirestationAll FAILED");
+            logger.error("GET findFirestationAll FAILED");
         }
         return findFirestation;
     }
@@ -43,7 +43,7 @@ public class FirestationController {
         if (newFirestationList != null){
             logger.info("POST createFirestation SUCCESS");
         } else {
-            logger.info("POST createFirestation FAILED");
+            logger.error("POST createFirestation FAILED");
         }
         return newFirestationList;
     }
@@ -54,7 +54,7 @@ public class FirestationController {
         if (updateFirestationOutput != null){
             logger.info("PUT updateFirestation SUCCESS");
         } else {
-            logger.info("PUT updateFirestation FAILED");
+            logger.error("PUT updateFirestation FAILED");
         }
         return updateFirestationOutput;
     }

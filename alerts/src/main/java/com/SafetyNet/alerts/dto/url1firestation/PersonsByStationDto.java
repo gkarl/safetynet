@@ -50,6 +50,6 @@ public class PersonsByStationDto {
 
     @Override
     public String toString(){
-        return "PersonsByStationDto [listPersonsStation=" + getListPersonsStation() + ", adults=" + getAdults() + ", children=" + getChildren() + "]";
+        return " [" + getListPersonsStation() + ", adults=" + getAdults() + ", children=" + getChildren() + "]";
     }
 }

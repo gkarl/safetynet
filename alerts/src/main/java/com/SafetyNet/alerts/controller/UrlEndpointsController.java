@@ -7,13 +7,16 @@ import com.SafetyNet.alerts.dto.url4fire.PersonListByAddress;
 import com.SafetyNet.alerts.dto.url5flood.FamilyListByStation;
 import com.SafetyNet.alerts.dto.url6personInfo.PersonInfoDto;
 import com.SafetyNet.alerts.dto.url7communityEmail.EmailListDto;
+import com.SafetyNet.alerts.exception.NotFoundException;
 import com.SafetyNet.alerts.service.UrlEndpointService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.text.ParseException;
 import java.util.List;
@@ -29,49 +32,56 @@ public class UrlEndpointsController {
     // URL 1 persons by firestation
     @GetMapping("/firestation")
     public PersonsByStationDto allPersonByStation(@RequestParam(value = "stationNumber") int stationNumber) throws ParseException {
-        logger.info("GET allPersonByStation SUCCESS :");
-        return urlEndpointService.allPersonsByStation(stationNumber);
+            PersonsByStationDto response = urlEndpointService.allPersonsByStation(stationNumber);
+            logger.info(String.valueOf(response));
+            return response;
     }
 
     // URL 2 child Alert
     @GetMapping("/childAlert")
     public ChildByAddressDto childsByAddress(@RequestParam("address") String address) throws ParseException{
-        logger.info("GET childsByAddress SUCCESS :");
-        return urlEndpointService.childsByAddress(address);
+        ChildByAddressDto response = urlEndpointService.childsByAddress(address);
+        logger.info(String.valueOf(response));
+        return response;
     }
 
     //URL 3 Phone Alert
     @GetMapping("/phoneAlert")
-    public PhoneAlertListDto phonesByFirestation(@RequestParam(value = "firestation") int firestation){
-        logger.info("GET phonesByFirestation SUCCESS :");
-        return urlEndpointService.phonesByFirestation(firestation);
+    public PhoneAlertListDto phonesByFirestation(@RequestParam(value = "firestation") int firestation) throws ParseException {
+        PhoneAlertListDto response = urlEndpointService.phonesByFirestation(firestation);
+        logger.info(String.valueOf(response));
+        return response;
     }
 
     // URL 4 fire
     @GetMapping("/fire")
     public PersonListByAddress personsByAddress(@RequestParam("address") String address) throws ParseException{
-        logger.info("GET personsByAddress SUCCESS :");
-        return urlEndpointService.personsByAddress(address);
+        PersonListByAddress response = urlEndpointService.personsByAddress(address);
+        logger.info(String.valueOf(response));
+        return response;
     }
 
     // URL 5 flood
     @GetMapping("flood/stations")
     public List<FamilyListByStation> familyByFirestation(@RequestParam(value = "stations") List<Integer> stations) throws ParseException{
-        logger.info("GET familyByFirestation SUCCESS :");
-        return urlEndpointService.familyByStation(stations);
+        List<FamilyListByStation> response = urlEndpointService.familyByStation(stations);
+        logger.info(String.valueOf(response));
+        return response;
     }
 
     // URL 6 personInfo
     @GetMapping(value = "/personInfo")
     public List<PersonInfoDto> personInfo(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) throws ParseException {
-        logger.info("GET personsInfo SUCCESS");
-        return urlEndpointService.personsInfo(firstName, lastName);
+        List<PersonInfoDto> response = urlEndpointService.personsInfo(firstName, lastName);
+        logger.info(String.valueOf(response));
+        return response;
     }
 
     // URL 7 communityEmail
     @GetMapping("/communityEmail")
-    public EmailListDto emailsByCity(@RequestParam(value = "city") String city){
-        logger.info("GET emailsByCity SUCCESS");
-        return urlEndpointService.emailsByCity(city);
+    public EmailListDto emailsByCity(@RequestParam(value = "city") String city) throws ParseException {
+        EmailListDto response =  urlEndpointService.emailsByCity(city);
+        logger.info(String.valueOf(response));
+        return response;
     }
 }

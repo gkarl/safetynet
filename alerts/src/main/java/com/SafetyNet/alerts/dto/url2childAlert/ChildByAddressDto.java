@@ -26,6 +26,6 @@ public class ChildByAddressDto {
 
     @Override
     public String toString(){
-        return "ChildByAddressDto [children=" + getChildren() + ", adults=" + getAdults() + "]";
+        return " [children=" + getChildren() + ", adults=" + getAdults() + "]";
     }
 }

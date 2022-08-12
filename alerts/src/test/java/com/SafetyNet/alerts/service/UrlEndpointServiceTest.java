@@ -56,7 +56,7 @@ public class UrlEndpointServiceTest {
     //URL 1
     @Test
     @DisplayName("Test allPersonByStation")
-    public void allPersonByStationTest() {
+    public void allPersonByStationTest() throws ParseException {
         listPersons = new ArrayList<Person>();
         Person person = new Person();
         person.setFirstName("karl");
@@ -296,7 +296,7 @@ public class UrlEndpointServiceTest {
     // URL 7
     @Test
     @DisplayName("Test emailsByCity")
-    public void emailsByCityTest(){
+    public void emailsByCityTest() throws ParseException {
         listPersons = new ArrayList<>();
         Person person = new Person();
         person.setFirstName("karl");
