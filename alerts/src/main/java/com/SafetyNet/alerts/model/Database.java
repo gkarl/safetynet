@@ -1,6 +1,9 @@
 package com.SafetyNet.alerts.model;
 
+import com.SafetyNet.alerts.controller.UrlEndpointsController;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -17,29 +20,20 @@ public class Database {
     private List<Firestation> firestations;
 
     @PostConstruct
-    public void initDatabase() throws IOException {
+    public void initDatabase() {
+        Logger logger = LoggerFactory.getLogger(UrlEndpointsController.class);
 
         Database database = new Database();
         try {
-            // create object mapper
-            ObjectMapper objectMapper = new ObjectMapper();
-            // read JSON  file and map/convert to Java POJO:
-            // Person thePersons  = objectMapper.readValue(new File("src/main/resources/data.json"), Person.class);
+            ObjectMapper objectMapper = new ObjectMapper();;
             database  = objectMapper.readValue(new File("src/main/resources/data.json"), Database.class);
-
-           // System.out.println("First Name = " +  persons.getFirstName());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error database Get json file into POJO", e);
         }
 
         this.persons = database.getPersons();
         this.medicalrecords = database.getMedicalrecords();
         this.firestations = database.getFirestations();
-        // print first name and last name
-        //.System.out.println("First Name = " );
-        //System.out.println("Last name = " );
-
-        //System.out.println("Database Object\n" + database);
     }
 
     public List<Person> getPersons() {

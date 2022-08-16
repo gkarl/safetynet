@@ -1,19 +1,36 @@
-2022-08-11 16:24:06,625 INFO o.s.b.StartupInfoLogger [main] Starting AlertsApplication using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 2520 (E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts\target\classes started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
-2022-08-11 16:24:06,638 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-08-11 16:24:08,505 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2022-08-11 16:24:08,529 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
-2022-08-11 16:24:08,530 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
-2022-08-11 16:24:08,533 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
-2022-08-11 16:24:08,823 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2022-08-11 16:24:08,824 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2126 ms
-2022-08-11 16:24:09,666 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
-2022-08-11 16:24:10,117 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
-2022-08-11 16:24:10,149 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
-2022-08-11 16:24:10,172 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2022-08-11 16:24:10,192 INFO o.s.b.StartupInfoLogger [main] Started AlertsApplication in 4.282 seconds (JVM running for 6.633)
-2022-08-11 16:24:11,775 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(3)-192.168.137.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-11 16:24:11,776 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-192.168.137.1] Initializing Servlet 'dispatcherServlet'
-2022-08-11 16:24:11,777 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-192.168.137.1] Completed initialization in 1 ms
-2022-08-11 16:24:19,649 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-2] Logging Request  GET : /fire : address=150%20Culver%20St
-2022-08-11 16:24:19,688 ERROR c.S.a.s.UrlEndpointService [http-nio-8080-exec-2] Parameter Not Found
-2022-08-11 16:24:19,713 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-2] Logging Response 409 : text/plain;charset=UTF-8
+2022-08-16 20:33:09,504 INFO o.s.b.StartupInfoLogger [main] Starting AlertsApplication using Java 11.0.3 on DESKTOP-H2G2CP4 with PID 12412 (E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts\target\classes started by KARL in E:\Msc2+1\OpenClassRoom\5-Projet - SafetyNet\Projet\workspace\alerts)
+2022-08-16 20:33:09,518 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-16 20:33:11,048 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-08-16 20:33:11,068 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-08-16 20:33:11,069 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2022-08-16 20:33:11,071 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-08-16 20:33:11,321 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-08-16 20:33:11,321 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1737 ms
+2022-08-16 20:33:12,151 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-08-16 20:33:12,562 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-08-16 20:33:12,591 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-08-16 20:33:12,613 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-08-16 20:33:12,635 INFO o.s.b.StartupInfoLogger [main] Started AlertsApplication in 3.866 seconds (JVM running for 6.007)
+2022-08-16 20:33:13,671 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(1)-192.168.137.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-16 20:33:13,671 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(1)-192.168.137.1] Initializing Servlet 'dispatcherServlet'
+2022-08-16 20:33:13,673 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(1)-192.168.137.1] Completed initialization in 1 ms
+2022-08-16 20:33:16,995 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-2] Logging Request  GET : /flood/stations : stations=(1,2)
+2022-08-16 20:33:17,067 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-2] Logging Response 400 : null
+2022-08-16 20:33:31,988 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-4] Logging Request  GET : /flood/stations : stations=1,2
+2022-08-16 20:33:32,010 INFO c.S.a.c.UrlEndpointsController [http-nio-8080-exec-4] [ [lastName=Duncan, phone=841-874-6512, age=21, medications=[], allergies =[shellfish]],  [lastName=Walker, phone=841-874-8547, age=42, medications=[thradox:700mg], allergies =[illisoxian]],  [lastName=Peters, phone=841-874-7462, age=40, medications=[], allergies =[]],  [lastName=Stelzer, phone=841-874-7784, age=46, medications=[ibupurin:200mg, hydrapermazol:400mg], allergies =[nillacilan]],  [lastName=Stelzer, phone=841-874-7784, age=42, medications=[], allergies =[]],  [lastName=Stelzer, phone=841-874-7784, age=8, medications=[noxidian:100mg, pharmacol:2500mg], allergies =[]],  [lastName=Duncan, phone=841-874-6512, age=21, medications=[], allergies =[shellfish]],  [lastName=Walker, phone=841-874-8547, age=42, medications=[thradox:700mg], allergies =[illisoxian]],  [lastName=Peters, phone=841-874-7462, age=40, medications=[], allergies =[]],  [lastName=Stelzer, phone=841-874-7784, age=46, medications=[ibupurin:200mg, hydrapermazol:400mg], allergies =[nillacilan]],  [lastName=Stelzer, phone=841-874-7784, age=42, medications=[], allergies =[]],  [lastName=Stelzer, phone=841-874-7784, age=8, medications=[noxidian:100mg, pharmacol:2500mg], allergies =[]],  [lastName=Marrack, phone=841-874-6513, age=33, medications=[], allergies =[]],  [lastName=Zemicks, phone=841-874-7878, age=34, medications=[aznol:60mg, hydrapermazol:900mg, pharmacol:5000mg, terazine:500mg], allergies =[peanut, shellfish, aznol]],  [lastName=Zemicks, phone=841-874-7512, age=37, medications=[], allergies =[]],  [lastName=Zemicks, phone=841-874-7512, age=5, medications=[], allergies =[]],  [lastName=Cadigan, phone=841-874-7458, age=77, medications=[tradoxidine:400mg], allergies =[]]]
+2022-08-16 20:33:32,035 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-4] Logging Response 200 : application/json
+2022-08-16 20:33:42,899 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-5] Logging Request  GET : /personInfo : firstName=Felicia&lastName=Boyd
+2022-08-16 20:33:42,918 INFO c.S.a.c.UrlEndpointsController [http-nio-8080-exec-5] [ [lastName=Boyd, address=1509 Culver St, age=36, email=jaboyd@email.com, medications=[tetracyclaz:650mg], allergies =[xilliathal]]]
+2022-08-16 20:33:42,923 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-5] Logging Response 200 : application/json
+2022-08-16 20:33:59,887 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-6] Logging Request  GET : /personInfo : firstName=Felicia&lastName=Boy
+2022-08-16 20:33:59,888 INFO c.S.a.c.UrlEndpointsController [http-nio-8080-exec-6] []
+2022-08-16 20:33:59,891 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-6] Logging Response 200 : application/json
+2022-08-16 20:34:04,892 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-7] Logging Request  GET : /personInfo : firstName=Felicia&lastName=Boyd
+2022-08-16 20:34:04,894 INFO c.S.a.c.UrlEndpointsController [http-nio-8080-exec-7] [ [lastName=Boyd, address=1509 Culver St, age=36, email=jaboyd@email.com, medications=[tetracyclaz:650mg], allergies =[xilliathal]]]
+2022-08-16 20:34:04,896 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-7] Logging Response 200 : application/json
+2022-08-16 20:34:11,329 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-8] Logging Request  GET : /communityEmail : city=Culve
+2022-08-16 20:34:11,331 INFO c.S.a.c.UrlEndpointsController [http-nio-8080-exec-8] listEmails [[]]
+2022-08-16 20:34:11,335 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-8] Logging Response 200 : application/json
+2022-08-16 20:34:18,280 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-9] Logging Request  GET : /communityEmail : city=Culver
+2022-08-16 20:34:18,281 INFO c.S.a.c.UrlEndpointsController [http-nio-8080-exec-9] listEmails [[jaboyd@email.com, drk@email.com, tenz@email.com, jaboyd@email.com, jaboyd@email.com, drk@email.com, tenz@email.com, jaboyd@email.com, jaboyd@email.com, tcoop@ymail.com, lily@email.com, soph@email.com, ward@email.com, zarc@email.com, reg@email.com, jpeter@email.com, jpeter@email.com, aly@imail.com, bstel@email.com, ssanw@email.com, bstel@email.com, clivfd@ymail.com, gramps@email.com]]
+2022-08-16 20:34:18,284 INFO c.S.a.c.RequestResponseLoggingFilter [http-nio-8080-exec-9] Logging Response 200 : application/json

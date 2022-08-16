@@ -73,46 +73,54 @@ public class UrlEndpointService {
     public PersonsByStationDto allPersonsByStation(int stationNumber) throws ParseException{
         List<Person> listPersonsStation = new ArrayList<Person>();
         CalculeService calculeService = new CalculeService();
-        for (Firestation firestation : firestationRepositoryInterface.findAddressByStation(stationNumber)){
-            List<Person> listPerson = personRepositoryInterface.findByAddress(firestation.getAddress());
-            listPersonsStation.addAll(listPerson);
-            for (Person person : listPerson){
-                Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
-                calculeService.calculateAge(medicalrecord.getBirthdate());
+        List<Firestation> firestations = firestationRepositoryInterface.findAddressByStation(stationNumber);
+        if (firestations != null) {
+            for (Firestation firestation : firestations){
+                List<Person> listPerson = personRepositoryInterface.findByAddress(firestation.getAddress());
+                listPersonsStation.addAll(listPerson);
+                for (Person person : listPerson){
+                    Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
+                    calculeService.calculateAge(medicalrecord.getBirthdate());
+                }
             }
+            // logger.info("GET allPersonsByStation SUCCESS : station = " + stationNumber + " , " + new PersonsByStationDto(listPersonsStation, calculeService.getAdults(), calculeService.getChildren()));
+            return new PersonsByStationDto(listPersonsStation, calculeService.getAdults(), calculeService.getChildren());
+        } else {
+            throw new NotFoundException("Parameter not found :" + stationNumber);
         }
-        // logger.info("GET allPersonsByStation SUCCESS : station = " + stationNumber + " , " + new PersonsByStationDto(listPersonsStation, calculeService.getAdults(), calculeService.getChildren()));
-        return new PersonsByStationDto(listPersonsStation, calculeService.getAdults(), calculeService.getChildren());
     }
 
 
     // URL 2 childs by address
     public ChildByAddressDto childsByAddress(String address) throws ParseException{
         List<Person> listPersonsByAddress = personRepositoryInterface.findByAddress(address);
-        ChildByAddressDto childByAddressDto = new ChildByAddressDto();
-        List<PersonsWithAge> childsList = new ArrayList<PersonsWithAge>();
-        List<PersonsWithAge> adultsList = new ArrayList<PersonsWithAge>();
-        CalculeService calculeService = new CalculeService();
-        List<Medicalrecord> listMedicalrecords = new ArrayList<Medicalrecord>();
-        for(Person person : listPersonsByAddress){
-            Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
-            listMedicalrecords.add(medicalrecord);
-            calculeService.calculateAge(medicalrecord.getBirthdate());
-            PersonsWithAge personsWithAge = new PersonsWithAge(person.getFirstName(), person.getLastName(), calculeService.getAge());
-            if (calculeService.getAge() == 0){
-                return null;
-            } else {
-                if (personsWithAge.getAge() < 18 ){
-                    childsList.add(personsWithAge);
+        if (listPersonsByAddress != null){
+            ChildByAddressDto childByAddressDto = new ChildByAddressDto();
+            List<PersonsWithAge> childsList = new ArrayList<PersonsWithAge>();
+            List<PersonsWithAge> adultsList = new ArrayList<PersonsWithAge>();
+            CalculeService calculeService = new CalculeService();
+            List<Medicalrecord> listMedicalrecords = new ArrayList<Medicalrecord>();
+            for(Person person : listPersonsByAddress){
+                Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
+                listMedicalrecords.add(medicalrecord);
+                calculeService.calculateAge(medicalrecord.getBirthdate());
+                PersonsWithAge personsWithAge = new PersonsWithAge(person.getFirstName(), person.getLastName(), calculeService.getAge());
+                if (calculeService.getAge() == 0){
+                    return null;
                 } else {
-                    adultsList.add(personsWithAge);
+                    if (personsWithAge.getAge() < 18 ){
+                        childsList.add(personsWithAge);
+                    } else {
+                        adultsList.add(personsWithAge);
+                    }
                 }
             }
+            childByAddressDto.setChildren(childsList);
+            childByAddressDto.setAdults(adultsList);
+            return childByAddressDto;
+        } else {
+            throw new NotFoundException("Parameter not found :" + address);
         }
-        childByAddressDto.setChildren(childsList);
-        childByAddressDto.setAdults(adultsList);
-        // logger.info("childsByAddress SUCCESS : address = " + address + " , " + childByAddressDto);
-        return childByAddressDto;
     }
 
     // URL 3 Phones by Firestation
@@ -122,11 +130,15 @@ public class UrlEndpointService {
         for (Firestation firestationB : firestationRepositoryInterface.findAddressByStation(firestation)) {
             listPersons.addAll(personRepositoryInterface.findByAddress(firestationB.getAddress()));
         }
-        for (Person person : listPersons) {
-            listPhones.add(person.getPhone());
+        if (listPersons != null) {
+            for (Person person : listPersons) {
+                listPhones.add(person.getPhone());
+            }
+            return new PhoneAlertListDto(listPhones);
+        } else {
+            throw new NotFoundException("Parameter not found :" + firestation);
         }
-        // logger.info("phonesByFirestation SUCCESS : firestation = " + firestation + " , " + new PhoneAlertListDto(listPhones));
-        return new PhoneAlertListDto(listPhones);
+
     }
 
     // URL 4 fire
@@ -141,11 +153,9 @@ public class UrlEndpointService {
                 calculeService.calculateAge(medicalrecord.getBirthdate());
                 listPersonByAddress.add(new PersonFireAddress(person.getLastName(), person.getPhone(), calculeService.getAge(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
             }
-            // logger.info("personsByAddress SUCCESS : address = " + address + " , " + new PersonListByAddress(firestationNumber, listPersonByAddress));
             return new PersonListByAddress(firestationNumber, listPersonByAddress);
         }
         else {
-            logger.error("Parameter Not Found" );
             throw new NotFoundException("Parameter not found :" + address);
             //throw new IllegalArgumentException();
         }
@@ -156,49 +166,61 @@ public class UrlEndpointService {
         List<FamilyListByStation> familyListByStation = new ArrayList<>();
         CalculeService calculeService = new CalculeService();
         List<Person> listPersons = new ArrayList<>();
-        for (Integer station : stations){
-            for (Firestation firestation : firestationRepositoryInterface.findAddressByStation(station)){
-               List<Person> listPersons1 = personRepositoryInterface.findByAddress(firestation.getAddress());
-               listPersons.addAll(listPersons1);
+        if (stations != null){
+            for (Integer station : stations){
+                for (Firestation firestation : firestationRepositoryInterface.findAddressByStation(station)){
+                    List<Person> listPersons1 = personRepositoryInterface.findByAddress(firestation.getAddress());
+                    listPersons.addAll(listPersons1);
+                }
+                List<Medicalrecord> listMedicalrecords = new ArrayList<>();
+                for (Person person : listPersons){
+                    Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
+                    listMedicalrecords.add(medicalrecord);
+                    calculeService.calculateAge(medicalrecord.getBirthdate());
+                    familyListByStation.add(new FamilyListByStation(person.getLastName(), person.getPhone(), calculeService.getAge(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
+                }
             }
-            List<Medicalrecord> listMedicalrecords = new ArrayList<>();
-            for (Person person : listPersons){
-                Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
-                listMedicalrecords.add(medicalrecord);
-                calculeService.calculateAge(medicalrecord.getBirthdate());
-                familyListByStation.add(new FamilyListByStation(person.getLastName(), person.getPhone(), calculeService.getAge(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
-            }
+            return familyListByStation;
+        } else {
+            throw new NotFoundException("Parameter not found :" + stations);
         }
-        // logger.info("familyByStation SUCCESSS : stations = " + stations + " , " + familyListByStation);
-        return familyListByStation;
     }
 
     // URL 6 personInfo
     public List<PersonInfoDto> personsInfo(String firstName, String lastName) throws ParseException{
         List<Person> listPersons = personRepositoryInterface.findByFirstNameLastName(firstName, lastName);
-        List<PersonInfoDto> personInfoDtoList = new ArrayList<PersonInfoDto>();
-        CalculeService calculator = new CalculeService();
-        for (Person person : listPersons) {
-            Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
-            calculator.calculateAge(medicalrecord.getBirthdate());
-            personInfoDtoList.add(new PersonInfoDto(person.getLastName(), person.getAddress(), calculator.getAge(), person.getEmail(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
+        if (listPersons != null) {
+            List<PersonInfoDto> personInfoDtoList = new ArrayList<PersonInfoDto>();
+            CalculeService calculator = new CalculeService();
+            for (Person person : listPersons) {
+                Medicalrecord medicalrecord = medicalrecordRepositoryInterface.findByFirstName(person.getFirstName());
+                calculator.calculateAge(medicalrecord.getBirthdate());
+                personInfoDtoList.add(new PersonInfoDto(person.getLastName(), person.getAddress(), calculator.getAge(), person.getEmail(), medicalrecord.getMedications(), medicalrecord.getAllergies()));
+            }
+            return personInfoDtoList;
+        } else {
+            throw new NotFoundException("Parameter not found :" + firstName + lastName);
         }
-        // logger.info("personsInfo SUCCESS : firstName lastName = " + (firstName + " , " + lastName + " " + personInfoDtoList));
-        return personInfoDtoList;
     }
 
     // URL 7 community Eamil
     public EmailListDto emailsByCity(String city) throws ParseException{
         List<Person> listPersons = new ArrayList<>();
         List<String> listEmails = new ArrayList<>();
-        for (Person person : personRepositoryInterface.findEmailByCity(city)){
-            listPersons.add(person);
+        List<Person> persons = personRepositoryInterface.findEmailByCity(city);
+        if (persons != null) {
+            for (Person person : persons){
+                listPersons.add(person);
+            }
+            for (Person person : listPersons) {
+                listEmails.add(person.getEmail());
+            }
+            return new EmailListDto(listEmails);
+        } else {
+            throw new NotFoundException("Parameter not found :" + city);
         }
-        for (Person person : listPersons) {
-            listEmails.add(person.getEmail());
-        }
-        //logger.info("emailsByCity SUCCESS : city = " + city + " , " + new EmailListDto(listEmails));
-        return new EmailListDto(listEmails);
+
     }
+
 
 }
